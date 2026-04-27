@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 </head>
 <body>
 
@@ -169,6 +170,7 @@
             <span class="tag">Streamlit</span>
             <span class="tag">yfinance</span>
           </div>
+          <button class="btn-view-dash" data-modal="modal-ai">View Dashboard →</button>
         </article>
 
         <article class="card">
@@ -189,6 +191,7 @@
             <span class="tag">Yahoo Finance API</span>
             <span class="tag">FRED API</span>
           </div>
+          <button class="btn-view-dash" data-modal="modal-market">View Dashboard →</button>
         </article>
 
         <article class="card">
@@ -209,6 +212,7 @@
             <span class="tag">Python</span>
             <span class="tag">Kaggle Data</span>
           </div>
+          <button class="btn-view-dash" data-modal="modal-trader">View Dashboard →</button>
         </article>
 
         <article class="card">
@@ -229,6 +233,7 @@
             <span class="tag">Automation</span>
             <span class="tag">Data Pipeline</span>
           </div>
+          <button class="btn-view-dash" data-modal="modal-commodity">View Dashboard →</button>
         </article>
 
       </div>
@@ -320,5 +325,152 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+
+  <!-- ── MODAL: Trader Behavior ────────────────────────────────────────────── -->
+  <div class="db-modal" id="modal-trader">
+    <div class="db-backdrop" data-close="modal-trader"></div>
+    <div class="db-panel">
+      <div class="db-header">
+        <div>
+          <span class="db-badge">Interactive Demo</span>
+          <h2 class="db-title">Trader Behavior Analysis</h2>
+          <p class="db-sub">12,847 retail investors &middot; Stocks, ETFs &amp; Crypto &middot; Public dataset</p>
+        </div>
+        <button class="db-close" data-close="modal-trader">&#x2715;</button>
+      </div>
+      <div class="db-kpis">
+        <div class="db-kpi"><div class="kpi-num">12,847</div><div class="kpi-lab">Total Traders</div></div>
+        <div class="db-kpi"><div class="kpi-num pos">+$234</div><div class="kpi-lab">Avg P&amp;L</div></div>
+        <div class="db-kpi"><div class="kpi-num">43.2%</div><div class="kpi-lab">Overall Win Rate</div></div>
+        <div class="db-kpi"><div class="kpi-num">Crypto</div><div class="kpi-lab">Most Traded Asset</div></div>
+      </div>
+      <div class="db-grid">
+        <div class="db-box span-2">
+          <p class="db-box-title">Trading Activity by Hour of Day</p>
+          <canvas id="ch-trader-hours"></canvas>
+        </div>
+        <div class="db-box">
+          <p class="db-box-title">Asset Preference Distribution</p>
+          <canvas id="ch-trader-assets"></canvas>
+        </div>
+        <div class="db-box">
+          <p class="db-box-title">Win Rate by Asset Type</p>
+          <canvas id="ch-trader-win"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MODAL: Market Briefing ────────────────────────────────────────────── -->
+  <div class="db-modal" id="modal-market">
+    <div class="db-backdrop" data-close="modal-market"></div>
+    <div class="db-panel">
+      <div class="db-header">
+        <div>
+          <span class="db-badge">Interactive Demo</span>
+          <h2 class="db-title">Market Open Briefing</h2>
+          <p class="db-sub">Pre-market intelligence &middot; S&amp;P 500 futures, movers &amp; sector rotation</p>
+        </div>
+        <button class="db-close" data-close="modal-market">&#x2715;</button>
+      </div>
+      <div class="db-kpis">
+        <div class="db-kpi"><div class="kpi-num pos">5,847</div><div class="kpi-lab">S&amp;P 500 Futures</div></div>
+        <div class="db-kpi"><div class="kpi-num pos">+0.30%</div><div class="kpi-lab">vs Fair Value</div></div>
+        <div class="db-kpi"><div class="kpi-num warn">18.4</div><div class="kpi-lab">VIX (Fear Index)</div></div>
+        <div class="db-kpi"><div class="kpi-num">FOMC</div><div class="kpi-lab">Key Event Today</div></div>
+      </div>
+      <div class="db-grid">
+        <div class="db-box span-2">
+          <p class="db-box-title">Overnight Futures vs Fair Value</p>
+          <canvas id="ch-market-futures"></canvas>
+        </div>
+        <div class="db-box">
+          <p class="db-box-title">Pre-market Top Movers</p>
+          <canvas id="ch-market-movers"></canvas>
+        </div>
+        <div class="db-box">
+          <p class="db-box-title">Sector Performance</p>
+          <canvas id="ch-market-sectors"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MODAL: Commodity Tracker ──────────────────────────────────────────── -->
+  <div class="db-modal" id="modal-commodity">
+    <div class="db-backdrop" data-close="modal-commodity"></div>
+    <div class="db-panel">
+      <div class="db-header">
+        <div>
+          <span class="db-badge">Interactive Demo</span>
+          <h2 class="db-title">Commodity Price Tracker</h2>
+          <p class="db-sub">Natural Gas &amp; WTI Oil &middot; 30-day rolling window &middot; EIA &amp; Yahoo Finance data</p>
+        </div>
+        <button class="db-close" data-close="modal-commodity">&#x2715;</button>
+      </div>
+      <div class="db-kpis">
+        <div class="db-kpi"><div class="kpi-num neg">$2.72</div><div class="kpi-lab">NatGas ($/MMBtu)</div></div>
+        <div class="db-kpi"><div class="kpi-num pos">$78.43</div><div class="kpi-lab">WTI Oil ($/bbl)</div></div>
+        <div class="db-kpi"><div class="kpi-num neg">&minus;4.2%</div><div class="kpi-lab">NatGas 30d Change</div></div>
+        <div class="db-kpi"><div class="kpi-num pos">+0.4%</div><div class="kpi-lab">Oil 30d Change</div></div>
+      </div>
+      <div class="db-grid">
+        <div class="db-box">
+          <p class="db-box-title">Natural Gas — 30 Days ($/MMBtu)</p>
+          <canvas id="ch-natgas"></canvas>
+        </div>
+        <div class="db-box">
+          <p class="db-box-title">WTI Oil — 30 Days ($/bbl)</p>
+          <canvas id="ch-oil"></canvas>
+        </div>
+        <div class="db-box span-2">
+          <p class="db-box-title">Week-over-Week Price Change (%)</p>
+          <canvas id="ch-commodity-wow"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MODAL: AI Research Assistant ─────────────────────────────────────── -->
+  <div class="db-modal" id="modal-ai">
+    <div class="db-backdrop" data-close="modal-ai"></div>
+    <div class="db-panel">
+      <div class="db-header">
+        <div>
+          <span class="db-badge">AI-Powered &middot; Claude API</span>
+          <h2 class="db-title">AI Financial Research Assistant</h2>
+          <p class="db-sub">Sample analysis: Apple Inc (AAPL) &middot; Report generated by Claude AI</p>
+        </div>
+        <button class="db-close" data-close="modal-ai">&#x2715;</button>
+      </div>
+      <div class="db-kpis">
+        <div class="db-kpi"><div class="kpi-num">AAPL</div><div class="kpi-lab">Ticker</div></div>
+        <div class="db-kpi"><div class="kpi-num pos">$189.42</div><div class="kpi-lab">Current Price</div></div>
+        <div class="db-kpi"><div class="kpi-num pos">BUY</div><div class="kpi-lab">AI Signal</div></div>
+        <div class="db-kpi"><div class="kpi-num">73%</div><div class="kpi-lab">Confidence Score</div></div>
+      </div>
+      <div class="db-grid">
+        <div class="db-box span-2">
+          <p class="db-box-title">Price History — 90 Days</p>
+          <canvas id="ch-ai-price"></canvas>
+        </div>
+        <div class="db-box">
+          <p class="db-box-title">Quarterly Revenue ($B)</p>
+          <canvas id="ch-ai-revenue"></canvas>
+        </div>
+        <div class="db-box db-ai-out">
+          <p class="db-box-title">AI Research Summary <span class="ai-badge">Claude AI</span></p>
+          <div class="ai-text">
+            <p><strong>Outlook:</strong> Bullish with moderate conviction. Services segment +14% YoY, offsetting hardware headwinds in China. Margin expansion on track.</p>
+            <p><strong>Key risks:</strong> EU regulatory pressure on App Store fees, slower iPhone upgrade cycle, FX headwinds from strong USD.</p>
+            <p><strong>Catalysts:</strong> Vision Pro adoption, India expansion, AI-native iPhone 17 product cycle.</p>
+            <p><strong>Recommendation:</strong> Buy on weakness. 12-month target: <strong>$210</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/dashboards.js"></script>
 </body>
 </html>
