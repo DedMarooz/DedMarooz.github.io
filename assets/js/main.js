@@ -20,7 +20,7 @@ const observer = new IntersectionObserver(
   entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
   { threshold: 0.12 }
 );
-document.querySelectorAll('.card, .skill-group, .about-stat, .contact-item').forEach(el => {
+document.querySelectorAll('.card, .skill-group, .about-stat, .contact-item, .timeline-item').forEach(el => {
   el.classList.add('fade-up');
   observer.observe(el);
 });
