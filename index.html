@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Alex Zaretski — Data Analyst with fintech expertise in Python, SQL, Tableau, Databricks, and AI tools." />
+  <title>Alex Zaretski — Data Analyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">AZ</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+      <button class="nav-burger" id="burger" aria-label="menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <p class="hero-greeting">Hi, my name is</p>
+      <h1 class="hero-name">Alex Zaretski.</h1>
+      <h2 class="hero-sub">I turn trading data into clear decisions.</h2>
+      <p class="hero-desc">
+        Data Analyst with 4 years in fintech at eToro. I build trading dashboards,
+        automate data pipelines, and use AI to make analysis faster and smarter.
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-accent">See My Work</a>
+        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I spent 4 years at eToro building tools that trading teams rely on every day —
+            dashboards that profile customers in real time, premarket briefings that help
+            traders see the full picture before the bell, and automated pipelines that publish
+            commodity commission data on schedule.
+          </p>
+          <p>
+            I know the stock market from the inside. I understand how positions are managed,
+            how risk is hedged, and what questions traders are actually asking when they look
+            at data. That domain knowledge makes my analysis actionable, not just accurate.
+          </p>
+          <p>
+            I am now expanding into AI — building assistants with the Claude API and training
+            models for ad hoc analysis. I believe every analyst who wants to stay relevant
+            needs to know how to work with AI tools, not just traditional BI.
+          </p>
+          <ul class="about-list">
+            <li>4 years at eToro — trading dashboards, pipelines, Databricks AI</li>
+            <li>Deep domain knowledge in stocks, ETFs, crypto, and commodities</li>
+            <li>Building with Claude API to automate financial research</li>
+            <li>Open to Data Analyst and BI Analyst roles</li>
+          </ul>
+        </div>
+        <div class="about-card">
+          <div class="about-stat"><span class="stat-num">4</span><span class="stat-label">Years in fintech</span></div>
+          <div class="about-stat"><span class="stat-num">3+</span><span class="stat-label">Trading tools shipped</span></div>
+          <div class="about-stat"><span class="stat-num">AI</span><span class="stat-label">Trained &amp; deployed</span></div>
+          <div class="about-stat"><span class="stat-num">100%</span><span class="stat-label">Open to work</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-sub">Demo projects built with public data, based on real fintech work.</p>
+      <div class="projects-grid">
+
+        <article class="card">
+          <div class="card-top">
+            <span class="card-icon">🤖</span>
+            <a href="https://github.com/DedMarooz" target="_blank" class="card-link">GitHub →</a>
+          </div>
+          <h3 class="card-title">AI Financial Research Assistant</h3>
+          <p class="card-desc">
+            Type a stock ticker and get an analyst-style report in seconds. The app pulls
+            live market data and news, then uses Claude AI to generate a structured summary —
+            key risks, recent trends, and a recommendation. Mirrors the Databricks AI assistant
+            I trained at eToro for ad hoc analysis.
+          </p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Claude API</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">yfinance</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <span class="card-icon">📊</span>
+            <a href="https://github.com/DedMarooz" target="_blank" class="card-link">GitHub →</a>
+          </div>
+          <h3 class="card-title">Market Open Briefing Dashboard</h3>
+          <p class="card-desc">
+            A daily dashboard showing what is about to happen when the US market opens —
+            S&amp;P 500 futures vs fair value, pre-market movers, sector rotation, and options
+            exposure. Built on public APIs. Directly inspired by the Premarket dashboard I
+            owned at eToro.
+          </p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Tableau</span>
+            <span class="tag">Yahoo Finance API</span>
+            <span class="tag">FRED API</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <span class="card-icon">👤</span>
+            <a href="https://github.com/DedMarooz" target="_blank" class="card-link">GitHub →</a>
+          </div>
+          <h3 class="card-title">Trader Behavior Analysis Dashboard</h3>
+          <p class="card-desc">
+            A Tableau dashboard profiling retail trader behavior — asset preferences
+            (stocks vs ETFs vs crypto), trading hours, win/loss patterns, and P&amp;L distribution.
+            Built to demonstrate the kind of customer intelligence I delivered at eToro,
+            using a public Kaggle dataset.
+          </p>
+          <div class="tags">
+            <span class="tag">SQL</span>
+            <span class="tag">Tableau</span>
+            <span class="tag">Python</span>
+            <span class="tag">Kaggle Data</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <span class="card-icon">⚡</span>
+            <a href="https://github.com/DedMarooz" target="_blank" class="card-link">GitHub →</a>
+          </div>
+          <h3 class="card-title">Commodity Price Tracker &amp; Report Bot</h3>
+          <p class="card-desc">
+            A Python pipeline that runs on a schedule — pulls Natural Gas and Oil prices from
+            public APIs, calculates rolling averages and volatility metrics, and auto-generates
+            a clean HTML report. Based on the commission automation pipeline I built for
+            commodity traders at eToro.
+          </p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">EIA API</span>
+            <span class="tag">Automation</span>
+            <span class="tag">Data Pipeline</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+
+        <div class="skill-group">
+          <h3 class="skill-group-title">Languages</h3>
+          <div class="skill-pills">
+            <span>Python</span><span>SQL</span><span>PySpark</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-group-title">Visualisation</h3>
+          <div class="skill-pills">
+            <span>Tableau</span><span>Plotly</span><span>Streamlit</span><span>Dash</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-group-title">Platforms</h3>
+          <div class="skill-pills">
+            <span>Databricks</span><span>Apache Spark</span><span>Pandas</span><span>NumPy</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-group-title">AI &amp; ML</h3>
+          <div class="skill-pills">
+            <span>Claude API</span><span>Databricks AI</span><span>LLM Prompting</span><span>NLP</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-group-title">Domain Knowledge</h3>
+          <div class="skill-pills">
+            <span>Stock Markets</span><span>ETFs</span><span>Crypto</span><span>Commodities</span><span>Risk &amp; Hedging</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-group-title">Engineering</h3>
+          <div class="skill-pills">
+            <span>Data Pipelines</span><span>Web Scraping</span><span>Automation</span><span>Git</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="container contact-inner">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="contact-desc">
+        I am currently open to Data Analyst and BI Analyst opportunities.
+        If you have a role, a question, or just want to connect — reach out.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:YOUR_EMAIL_HERE" class="contact-item">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">your.email@gmail.com</span>
+        </a>
+        <a href="https://github.com/DedMarooz" target="_blank" class="contact-item">
+          <span class="contact-label">GitHub</span>
+          <span class="contact-value">github.com/DedMarooz</span>
+        </a>
+        <a href="YOUR_LINKEDIN_URL" target="_blank" class="contact-item">
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">linkedin.com/in/yourprofile</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Designed &amp; built by Alex Zaretski &nbsp;·&nbsp;
+      <a href="https://github.com/DedMarooz/DedMarooz.github.io" target="_blank">View Source</a>
+    </p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
