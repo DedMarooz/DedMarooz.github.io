@@ -333,32 +333,66 @@
       <div class="db-header">
         <div>
           <span class="db-badge">Cross-Department Analytics &middot; Data Pipeline</span>
-          <h2 class="db-title">Finance &amp; Trading Data Reconciliation</h2>
-          <p class="db-sub">6-month analysis &middot; 2 source databases &middot; $370K gap identified &amp; resolved</p>
+          <h2 class="db-title">Finance vs Trading Fees &mdash; Data Consistency Check</h2>
+          <p class="db-sub">Comparing fees calculated by Finance and Trading departments for all stocks</p>
         </div>
         <button class="db-close" data-close="modal-trader">&#x2715;</button>
       </div>
-      <div class="db-kpis">
-        <div class="db-kpi"><div class="kpi-num">$4.22M</div><div class="kpi-lab">Finance Total</div></div>
-        <div class="db-kpi"><div class="kpi-num warn">$3.85M</div><div class="kpi-lab">Trading Total</div></div>
-        <div class="db-kpi"><div class="kpi-num neg">&minus;$370K</div><div class="kpi-lab">Gap (8.8%)</div></div>
-        <div class="db-kpi"><div class="kpi-num pos">Resolved</div><div class="kpi-lab">Status</div></div>
+      <div class="db-kpis db-kpis-5">
+        <div class="db-kpi"><div class="kpi-num">5</div><div class="kpi-lab">Total Stocks</div></div>
+        <div class="db-kpi"><div class="kpi-num neg">1</div><div class="kpi-lab">Mismatched Stocks</div></div>
+        <div class="db-kpi"><div class="kpi-num pos">80%</div><div class="kpi-lab">Match Rate</div></div>
+        <div class="db-kpi"><div class="kpi-num">$500</div><div class="kpi-lab">Total Fees (Finance)</div></div>
+        <div class="db-kpi"><div class="kpi-num warn">$580</div><div class="kpi-lab">Total Fees (Trading)</div></div>
       </div>
       <div class="db-grid">
-        <div class="db-box span-2 db-box-note">
-          <p class="db-box-title">Fee Revenue per Stock: Finance vs Trading ($K)</p>
+        <div class="db-box span-2">
+          <p class="db-box-title">Fees by Stock and Department</p>
           <canvas id="ch-trader-hours"></canvas>
-          <div class="recon-alert">
-            &#9888; <strong>NVDA anomaly identified</strong> — Trading dept fees were calculated using the pre-split share price ($1,208/share) instead of the post-split price ($120.8/share) after NVDA's 10:1 stock split in June 2024. Fee notional was 10&times; overstated in the Trading database. Root cause confirmed after cross-database investigation. Calculation corrected in pipeline.
+        </div>
+        <div class="db-box">
+          <p class="db-box-title">Fee Comparison Details</p>
+          <div style="flex:1;overflow-y:auto;">
+            <table class="recon-table">
+              <thead>
+                <tr><th>Stock</th><th>Finance ($)</th><th>Trading ($)</th><th>Diff</th><th>Status</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>AAPL</td><td>100</td><td>100</td><td>0</td><td style="color:#34D399">&#10003; Match</td></tr>
+                <tr><td>MSFT</td><td>120</td><td>120</td><td>0</td><td style="color:#34D399">&#10003; Match</td></tr>
+                <tr><td>TSLA</td><td>90</td><td>90</td><td>0</td><td style="color:#34D399">&#10003; Match</td></tr>
+                <tr><td>AMZN</td><td>110</td><td>110</td><td>0</td><td style="color:#34D399">&#10003; Match</td></tr>
+                <tr class="mismatch"><td>NVDA</td><td>80</td><td>160</td><td>+80</td><td>&#9888; Mismatch</td></tr>
+              </tbody>
+            </table>
           </div>
         </div>
         <div class="db-box">
-          <p class="db-box-title">Gap by Root Cause ($K)</p>
-          <canvas id="ch-trader-assets"></canvas>
-        </div>
-        <div class="db-box">
-          <p class="db-box-title">Revenue Gap % — Discovery to Resolution</p>
-          <canvas id="ch-trader-win"></canvas>
+          <p class="db-box-title">Investigation Summary</p>
+          <div class="invest-cards">
+            <div class="invest-card">
+              <span class="invest-icon">&#128269;</span>
+              <div>
+                <div class="invest-label">Mismatch found on</div>
+                <div class="invest-val"><strong>NVDA</strong></div>
+              </div>
+            </div>
+            <div class="invest-card">
+              <span class="invest-icon">&#128161;</span>
+              <div>
+                <div class="invest-label">Root Cause</div>
+                <div class="invest-val">Trading dept used pre-split price for NVDA, resulting in inflated fees.</div>
+              </div>
+            </div>
+            <div class="invest-card">
+              <span class="invest-icon">&#10003;</span>
+              <div>
+                <div class="invest-label">Action Taken</div>
+                <div class="invest-val">Price data updated to post-split values. Fees are now aligned.</div>
+              </div>
+            </div>
+            <div class="invest-resolved">&#10003; Data issue resolved. No further action required.</div>
+          </div>
         </div>
       </div>
     </div>

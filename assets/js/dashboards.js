@@ -71,121 +71,123 @@ function render(id) {
 
 // ── Dashboard 1: Finance & Trading Reconciliation ─────────────────────────────
 function renderTrader() {
-  // Grouped bar: fee revenue per stock — NVDA highlighted as the anomaly
-  const stocks   = ['AAPL', 'TSLA', 'META', 'GOOGL', 'NVDA', 'AMZN', 'MSFT'];
+  const stocks   = ['AAPL', 'MSFT', 'TSLA', 'AMZN', 'NVDA'];
   const nvdaIdx  = 4;
-  const finFees  = [52, 38, 44, 29, 48, 31, 41];
-  const tradFees = [52, 38, 44, 29, 235, 31, 41]; // NVDA 235 = pre-split price inflates notional ~10×
+  const finFees  = [100, 120, 90, 110, 80];
+  const tradFees = [100, 120, 90, 110, 160];
+
+  // Custom plugin: value labels + diff badges + dashed red border on NVDA
+  const reconPlugin = {
+    id: 'reconPlugin',
+    afterDraw(chart) {
+      const { ctx, scales: { y } } = chart;
+      const meta0 = chart.getDatasetMeta(0);
+      const meta1 = chart.getDatasetMeta(1);
+      const baseY = y.getPixelForValue(0);
+
+      function rrect(x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.lineTo(x + w - r, y);
+        ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+        ctx.lineTo(x + w, y + h - r);
+        ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+        ctx.lineTo(x + r, y + h);
+        ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+        ctx.lineTo(x, y + r);
+        ctx.quadraticCurveTo(x, y, x + r, y);
+        ctx.closePath();
+      }
+
+      // Value labels above each bar
+      [{ meta: meta0, data: finFees }, { meta: meta1, data: tradFees }].forEach(({ meta, data }) => {
+        meta.data.forEach((bar, i) => {
+          ctx.save();
+          ctx.fillStyle = '#E2E8F0';
+          ctx.font = 'bold 11px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText(data[i], bar.x, bar.y - 5);
+          ctx.restore();
+        });
+      });
+
+      // Difference badge centred above each group
+      for (let i = 0; i < stocks.length; i++) {
+        const b0   = meta0.data[i];
+        const b1   = meta1.data[i];
+        const xC   = (b0.x + b1.x) / 2;
+        const topY = Math.min(b0.y, b1.y) - 28;
+        const diff  = tradFees[i] - finFees[i];
+        const isOk  = diff === 0;
+        const label = isOk ? '0' : '+' + diff;
+        const bw = isOk ? 22 : 34;
+        const bh = 15;
+        ctx.save();
+        ctx.fillStyle = isOk ? 'rgba(52,211,153,.2)' : 'rgba(248,113,113,.28)';
+        rrect(xC - bw / 2, topY - bh, bw, bh, 3);
+        ctx.fill();
+        ctx.fillStyle = isOk ? '#34D399' : '#F87171';
+        ctx.font = 'bold 10px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(label, xC, topY - 3);
+        ctx.restore();
+      }
+
+      // Red dashed border around NVDA pair
+      const nb0 = meta0.data[nvdaIdx];
+      const nb1 = meta1.data[nvdaIdx];
+      const pad = 10;
+      const rl  = Math.min(nb0.x - nb0.width / 2, nb1.x - nb1.width / 2) - pad;
+      const rr  = Math.max(nb0.x + nb0.width / 2, nb1.x + nb1.width / 2) + pad;
+      const rt  = Math.min(nb0.y, nb1.y) - 52;
+      const rb  = baseY + 4;
+      ctx.save();
+      ctx.strokeStyle = '#F87171';
+      ctx.lineWidth   = 1.5;
+      ctx.setLineDash([5, 3]);
+      ctx.strokeRect(rl, rt, rr - rl, rb - rt);
+      ctx.restore();
+    }
+  };
+
   mk('ch-trader-hours', {
     type: 'bar',
     data: {
       labels: stocks,
       datasets: [
         {
-          label: 'Finance Dept ($K)',
+          label: 'Finance Fees',
           data: finFees,
-          backgroundColor: finFees.map((_, i) => i === nvdaIdx ? 'rgba(248,113,113,.9)' : 'rgba(96,165,250,.85)'),
-          borderRadius: 5,
-          borderSkipped: false
+          backgroundColor: finFees.map((_, i) => i === nvdaIdx ? 'rgba(248,113,113,.75)' : '#2B6CB0'),
+          borderRadius: 4, borderSkipped: false
         },
         {
-          label: 'Trading Dept ($K)',
+          label: 'Trading Fees',
           data: tradFees,
-          backgroundColor: tradFees.map((_, i) => i === nvdaIdx ? 'rgba(248,113,113,.45)' : 'rgba(251,191,36,.75)'),
-          borderRadius: 5,
-          borderSkipped: false
+          backgroundColor: tradFees.map((_, i) => i === nvdaIdx ? 'rgba(248,113,113,.4)' : '#F59E0B'),
+          borderRadius: 4, borderSkipped: false
         }
       ]
     },
     options: {
       responsive: true, maintainAspectRatio: false,
+      layout: { padding: { top: 55 } },
       plugins: {
         legend: { labels: { color: C.light, font: { family: C.font }, boxWidth: 14 } },
-        tooltip: { ...tooltip, callbacks: { label: ctx => ` ${ctx.dataset.label}: $${ctx.parsed.y}K` } }
+        tooltip: { ...tooltip, callbacks: { label: ctx => ` ${ctx.dataset.label}: $${ctx.parsed.y}` } }
       },
       scales: {
         x: {
           grid: { color: C.grid },
-          ticks: { color: ctx => ctx.index === nvdaIdx ? C.red : C.slate, font: ctx => ({ family: C.font, weight: ctx.index === nvdaIdx ? '700' : '400' }) }
+          ticks: {
+            color: ctx => ctx.index === nvdaIdx ? '#F87171' : C.slate,
+            font: ctx => ({ family: C.font, size: 11, weight: ctx.index === nvdaIdx ? '700' : '400' })
+          }
         },
-        y: { grid: { color: C.grid }, ticks: { color: C.slate, callback: v => '$' + v + 'K' } }
+        y: { grid: { color: C.grid }, min: 0, max: 200, ticks: { color: C.slate, callback: v => '$' + v } }
       }
-    }
-  });
-
-  // Horizontal bar: gap by root cause — NVDA split is the dominant cause
-  const causes = [
-    ['Stock Split Price Error', '(NVDA — June 2024)'],
-    'Settlement Timing (T vs T+2)',
-    'FX Rate Snapshots',
-    'Rounding & Other'
-  ];
-  const gaps = [187, 98, 53, 32];
-  mk('ch-trader-assets', {
-    type: 'bar',
-    data: {
-      labels: causes,
-      datasets: [{
-        label: 'Gap ($K)',
-        data: gaps,
-        backgroundColor: ['rgba(248,113,113,.85)', 'rgba(251,191,36,.8)', 'rgba(96,165,250,.7)', 'rgba(148,163,184,.5)'],
-        borderRadius: 5,
-        borderSkipped: false
-      }]
     },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      indexAxis: 'y',
-      plugins: { legend: { display: false }, tooltip: { ...tooltip, callbacks: { label: ctx => ` $${ctx.parsed.x}K` } } },
-      scales: {
-        x: { grid: { color: C.grid }, ticks: { color: C.slate, callback: v => '$' + v + 'K' } },
-        y: { grid: { color: C.grid }, ticks: { color: C.light, font: { family: C.font, size: 11 } } }
-      }
-    }
-  });
-
-  // Line: gap % trend from discovery to resolution
-  const trendMonths = ['Aug 23', 'Sep 23', 'Oct 23', 'Nov 23', 'Dec 23', 'Jan 24', 'Feb 24', 'Mar 24'];
-  const gapPct      = [10.3, 10.8, 10.2, 9.8, 8.1, 5.7, 2.8, 1.1];
-  mk('ch-trader-win', {
-    type: 'line',
-    data: {
-      labels: trendMonths,
-      datasets: [
-        {
-          label: 'Revenue Gap %',
-          data: gapPct,
-          borderColor: C.red,
-          backgroundColor: 'rgba(248,113,113,.12)',
-          fill: true, tension: 0.4,
-          pointRadius: 4, pointBackgroundColor: gapPct.map((v, i) => i >= 5 ? '#34D399' : C.red),
-          pointBorderColor: 'transparent'
-        },
-        {
-          label: 'Target (0%)',
-          data: Array(8).fill(0),
-          borderColor: 'rgba(52,211,153,.35)',
-          borderDash: [6, 4],
-          borderWidth: 1.5,
-          pointRadius: 0, fill: false, tension: 0
-        }
-      ]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: {
-        legend: { labels: { color: C.light, font: { family: C.font }, boxWidth: 14 } },
-        tooltip: { ...tooltip, callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y}%` } }
-      },
-      scales: {
-        x: { grid: { color: C.grid }, ticks: { color: C.slate } },
-        y: {
-          grid: { color: C.grid },
-          ticks: { color: C.slate, callback: v => v + '%' },
-          min: 0, suggestedMax: 12
-        }
-      }
-    }
+    plugins: [reconPlugin]
   });
 }
 
