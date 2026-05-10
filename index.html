@@ -196,21 +196,21 @@
 
         <article class="card">
           <div class="card-top">
-            <span class="card-icon">👤</span>
+            <span class="card-icon">⚖️</span>
             <a href="https://github.com/DedMarooz" target="_blank" class="card-link">GitHub →</a>
           </div>
-          <h3 class="card-title">Trader Behavior Analysis Dashboard</h3>
+          <h3 class="card-title">Finance &amp; Trading Data Reconciliation</h3>
           <p class="card-desc">
-            A Tableau dashboard profiling retail trader behavior — asset preferences
-            (stocks vs ETFs vs crypto), trading hours, win/loss patterns, and P&amp;L distribution.
-            Built to demonstrate the kind of customer intelligence I delivered at eToro,
-            using a public Kaggle dataset.
+            Finance and Trading were reporting different revenue numbers for the same period.
+            I investigated both databases, traced the root causes to settlement timing, fee
+            classification, and FX rate differences, built a unified pipeline, and delivered
+            a Tableau dashboard showing both figures side by side so the gap was instantly visible.
           </p>
           <div class="tags">
             <span class="tag">SQL</span>
-            <span class="tag">Tableau</span>
             <span class="tag">Python</span>
-            <span class="tag">Kaggle Data</span>
+            <span class="tag">Tableau</span>
+            <span class="tag">Data Pipeline</span>
           </div>
           <button class="btn-view-dash" data-modal="modal-trader">View Dashboard →</button>
         </article>
@@ -326,35 +326,35 @@
 
   <script src="assets/js/main.js"></script>
 
-  <!-- ── MODAL: Trader Behavior ────────────────────────────────────────────── -->
+  <!-- ── MODAL: Finance & Trading Reconciliation ───────────────────────────── -->
   <div class="db-modal" id="modal-trader">
     <div class="db-backdrop" data-close="modal-trader"></div>
     <div class="db-panel">
       <div class="db-header">
         <div>
-          <span class="db-badge">Interactive Demo</span>
-          <h2 class="db-title">Trader Behavior Analysis</h2>
-          <p class="db-sub">12,847 retail investors &middot; Stocks, ETFs &amp; Crypto &middot; Public dataset</p>
+          <span class="db-badge">Cross-Department Analytics &middot; Data Pipeline</span>
+          <h2 class="db-title">Finance &amp; Trading Data Reconciliation</h2>
+          <p class="db-sub">6-month analysis &middot; 2 source databases &middot; $370K gap identified &amp; resolved</p>
         </div>
         <button class="db-close" data-close="modal-trader">&#x2715;</button>
       </div>
       <div class="db-kpis">
-        <div class="db-kpi"><div class="kpi-num">12,847</div><div class="kpi-lab">Total Traders</div></div>
-        <div class="db-kpi"><div class="kpi-num pos">+$234</div><div class="kpi-lab">Avg P&amp;L</div></div>
-        <div class="db-kpi"><div class="kpi-num">43.2%</div><div class="kpi-lab">Overall Win Rate</div></div>
-        <div class="db-kpi"><div class="kpi-num">Crypto</div><div class="kpi-lab">Most Traded Asset</div></div>
+        <div class="db-kpi"><div class="kpi-num">$4.22M</div><div class="kpi-lab">Finance Total</div></div>
+        <div class="db-kpi"><div class="kpi-num warn">$3.85M</div><div class="kpi-lab">Trading Total</div></div>
+        <div class="db-kpi"><div class="kpi-num neg">&minus;$370K</div><div class="kpi-lab">Gap (8.8%)</div></div>
+        <div class="db-kpi"><div class="kpi-num pos">Resolved</div><div class="kpi-lab">Status</div></div>
       </div>
       <div class="db-grid">
         <div class="db-box span-2">
-          <p class="db-box-title">Trading Activity by Hour of Day</p>
+          <p class="db-box-title">Monthly Revenue: Finance vs Trading ($K)</p>
           <canvas id="ch-trader-hours"></canvas>
         </div>
         <div class="db-box">
-          <p class="db-box-title">Asset Preference Distribution</p>
+          <p class="db-box-title">Gap by Root Cause ($K)</p>
           <canvas id="ch-trader-assets"></canvas>
         </div>
         <div class="db-box">
-          <p class="db-box-title">Win Rate by Asset Type</p>
+          <p class="db-box-title">Revenue Gap % — Discovery to Resolution</p>
           <canvas id="ch-trader-win"></canvas>
         </div>
       </div>

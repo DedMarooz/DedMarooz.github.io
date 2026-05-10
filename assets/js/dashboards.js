@@ -69,61 +69,63 @@ function render(id) {
   if (id === 'modal-ai')        renderAI();
 }
 
-// ── Dashboard 1: Trader Behavior ───────────────────────────────────────────────
+// ── Dashboard 1: Finance & Trading Reconciliation ─────────────────────────────
 function renderTrader() {
-  // Bar: trades by hour
-  const hours  = ['9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm','9pm'];
-  const trades = [2840, 3920, 2640, 1820, 1650, 2100, 3710, 2950, 890, 650, 540, 480, 320];
+  const months  = ['Oct 23', 'Nov 23', 'Dec 23', 'Jan 24', 'Feb 24', 'Mar 24'];
+  const finance = [695, 720, 675, 705, 730, 693];
+  const trading = [624, 642, 616, 643, 699, 622];
+
+  // Grouped bar: Finance vs Trading monthly revenue
   mk('ch-trader-hours', {
     type: 'bar',
     data: {
-      labels: hours,
-      datasets: [{
-        label: 'Number of Trades',
-        data: trades,
-        backgroundColor: trades.map(v => v > 3000 ? C.accent : 'rgba(100,255,218,.3)'),
-        borderRadius: 5,
-        borderSkipped: false
-      }]
+      labels: months,
+      datasets: [
+        {
+          label: 'Finance Dept ($K)',
+          data: finance,
+          backgroundColor: 'rgba(96,165,250,.85)',
+          borderRadius: 5,
+          borderSkipped: false
+        },
+        {
+          label: 'Trading Dept ($K)',
+          data: trading,
+          backgroundColor: 'rgba(251,191,36,.75)',
+          borderRadius: 5,
+          borderSkipped: false
+        }
+      ]
     },
     options: {
       responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false }, tooltip },
-      scales: axes()
-    }
-  });
-
-  // Doughnut: asset preference
-  mk('ch-trader-assets', {
-    type: 'doughnut',
-    data: {
-      labels: ['Crypto 42%', 'Stocks 38%', 'ETFs 20%'],
-      datasets: [{
-        data: [42, 38, 20],
-        backgroundColor: [C.accent, C.blue, C.yellow],
-        borderWidth: 0,
-        hoverOffset: 10
-      }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      cutout: '68%',
       plugins: {
-        legend: { position: 'bottom', labels: { color: C.light, padding: 14, font: { family: C.font, size: 12 }, boxWidth: 12 } },
-        tooltip
+        legend: { labels: { color: C.light, font: { family: C.font }, boxWidth: 14 } },
+        tooltip: { ...tooltip, callbacks: { label: ctx => ` ${ctx.dataset.label}: $${ctx.parsed.y}K` } }
+      },
+      scales: {
+        x: { grid: { color: C.grid }, ticks: { color: C.slate } },
+        y: { grid: { color: C.grid }, ticks: { color: C.slate, callback: v => '$' + v + 'K' } }
       }
     }
   });
 
-  // Horizontal bar: win rate by asset
-  mk('ch-trader-win', {
+  // Horizontal bar: gap by root cause
+  const causes = [
+    ['Settlement Timing', '(T vs T+2)'],
+    'Fee Classification',
+    'FX Rate Snapshots',
+    'Refund Treatment'
+  ];
+  const gaps = [142, 98, 76, 54];
+  mk('ch-trader-assets', {
     type: 'bar',
     data: {
-      labels: ['Crypto', 'Stocks', 'ETFs'],
+      labels: causes,
       datasets: [{
-        label: 'Win Rate %',
-        data: [38.4, 44.1, 51.8],
-        backgroundColor: [C.red, C.blue, C.accent],
+        label: 'Gap ($K)',
+        data: gaps,
+        backgroundColor: ['rgba(248,113,113,.85)', 'rgba(251,191,36,.8)', 'rgba(96,165,250,.7)', 'rgba(148,163,184,.55)'],
         borderRadius: 5,
         borderSkipped: false
       }]
@@ -131,10 +133,54 @@ function renderTrader() {
     options: {
       responsive: true, maintainAspectRatio: false,
       indexAxis: 'y',
-      plugins: { legend: { display: false }, tooltip },
+      plugins: { legend: { display: false }, tooltip: { ...tooltip, callbacks: { label: ctx => ` $${ctx.parsed.x}K` } } },
       scales: {
-        x: { grid: { color: C.grid }, ticks: { color: C.slate, callback: v => v + '%' } },
-        y: { grid: { color: C.grid }, ticks: { color: C.light, font: { family: C.font, size: 12 } } }
+        x: { grid: { color: C.grid }, ticks: { color: C.slate, callback: v => '$' + v + 'K' } },
+        y: { grid: { color: C.grid }, ticks: { color: C.light, font: { family: C.font, size: 11 } } }
+      }
+    }
+  });
+
+  // Line: gap % trend from discovery to resolution
+  const trendMonths = ['Aug 23', 'Sep 23', 'Oct 23', 'Nov 23', 'Dec 23', 'Jan 24', 'Feb 24', 'Mar 24'];
+  const gapPct      = [10.3, 10.8, 10.2, 9.8, 8.1, 5.7, 2.8, 1.1];
+  mk('ch-trader-win', {
+    type: 'line',
+    data: {
+      labels: trendMonths,
+      datasets: [
+        {
+          label: 'Revenue Gap %',
+          data: gapPct,
+          borderColor: C.red,
+          backgroundColor: 'rgba(248,113,113,.12)',
+          fill: true, tension: 0.4,
+          pointRadius: 4, pointBackgroundColor: gapPct.map((v, i) => i >= 5 ? '#34D399' : C.red),
+          pointBorderColor: 'transparent'
+        },
+        {
+          label: 'Target (0%)',
+          data: Array(8).fill(0),
+          borderColor: 'rgba(52,211,153,.35)',
+          borderDash: [6, 4],
+          borderWidth: 1.5,
+          pointRadius: 0, fill: false, tension: 0
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: C.light, font: { family: C.font }, boxWidth: 14 } },
+        tooltip: { ...tooltip, callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y}%` } }
+      },
+      scales: {
+        x: { grid: { color: C.grid }, ticks: { color: C.slate } },
+        y: {
+          grid: { color: C.grid },
+          ticks: { color: C.slate, callback: v => v + '%' },
+          min: 0, suggestedMax: 12
+        }
       }
     }
   });
