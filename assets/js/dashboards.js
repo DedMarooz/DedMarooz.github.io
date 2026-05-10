@@ -71,27 +71,27 @@ function render(id) {
 
 // ── Dashboard 1: Finance & Trading Reconciliation ─────────────────────────────
 function renderTrader() {
-  const months  = ['Oct 23', 'Nov 23', 'Dec 23', 'Jan 24', 'Feb 24', 'Mar 24'];
-  const finance = [695, 720, 675, 705, 730, 693];
-  const trading = [624, 642, 616, 643, 699, 622];
-
-  // Grouped bar: Finance vs Trading monthly revenue
+  // Grouped bar: fee revenue per stock — NVDA highlighted as the anomaly
+  const stocks   = ['AAPL', 'TSLA', 'META', 'GOOGL', 'NVDA', 'AMZN', 'MSFT'];
+  const nvdaIdx  = 4;
+  const finFees  = [52, 38, 44, 29, 48, 31, 41];
+  const tradFees = [52, 38, 44, 29, 235, 31, 41]; // NVDA 235 = pre-split price inflates notional ~10×
   mk('ch-trader-hours', {
     type: 'bar',
     data: {
-      labels: months,
+      labels: stocks,
       datasets: [
         {
           label: 'Finance Dept ($K)',
-          data: finance,
-          backgroundColor: 'rgba(96,165,250,.85)',
+          data: finFees,
+          backgroundColor: finFees.map((_, i) => i === nvdaIdx ? 'rgba(248,113,113,.9)' : 'rgba(96,165,250,.85)'),
           borderRadius: 5,
           borderSkipped: false
         },
         {
           label: 'Trading Dept ($K)',
-          data: trading,
-          backgroundColor: 'rgba(251,191,36,.75)',
+          data: tradFees,
+          backgroundColor: tradFees.map((_, i) => i === nvdaIdx ? 'rgba(248,113,113,.45)' : 'rgba(251,191,36,.75)'),
           borderRadius: 5,
           borderSkipped: false
         }
@@ -104,20 +104,23 @@ function renderTrader() {
         tooltip: { ...tooltip, callbacks: { label: ctx => ` ${ctx.dataset.label}: $${ctx.parsed.y}K` } }
       },
       scales: {
-        x: { grid: { color: C.grid }, ticks: { color: C.slate } },
+        x: {
+          grid: { color: C.grid },
+          ticks: { color: ctx => ctx.index === nvdaIdx ? C.red : C.slate, font: ctx => ({ family: C.font, weight: ctx.index === nvdaIdx ? '700' : '400' }) }
+        },
         y: { grid: { color: C.grid }, ticks: { color: C.slate, callback: v => '$' + v + 'K' } }
       }
     }
   });
 
-  // Horizontal bar: gap by root cause
+  // Horizontal bar: gap by root cause — NVDA split is the dominant cause
   const causes = [
-    ['Settlement Timing', '(T vs T+2)'],
-    'Fee Classification',
+    ['Stock Split Price Error', '(NVDA — June 2024)'],
+    'Settlement Timing (T vs T+2)',
     'FX Rate Snapshots',
-    'Refund Treatment'
+    'Rounding & Other'
   ];
-  const gaps = [142, 98, 76, 54];
+  const gaps = [187, 98, 53, 32];
   mk('ch-trader-assets', {
     type: 'bar',
     data: {
@@ -125,7 +128,7 @@ function renderTrader() {
       datasets: [{
         label: 'Gap ($K)',
         data: gaps,
-        backgroundColor: ['rgba(248,113,113,.85)', 'rgba(251,191,36,.8)', 'rgba(96,165,250,.7)', 'rgba(148,163,184,.55)'],
+        backgroundColor: ['rgba(248,113,113,.85)', 'rgba(251,191,36,.8)', 'rgba(96,165,250,.7)', 'rgba(148,163,184,.5)'],
         borderRadius: 5,
         borderSkipped: false
       }]

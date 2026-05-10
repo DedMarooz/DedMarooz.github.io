@@ -345,9 +345,12 @@
         <div class="db-kpi"><div class="kpi-num pos">Resolved</div><div class="kpi-lab">Status</div></div>
       </div>
       <div class="db-grid">
-        <div class="db-box span-2">
-          <p class="db-box-title">Monthly Revenue: Finance vs Trading ($K)</p>
+        <div class="db-box span-2 db-box-note">
+          <p class="db-box-title">Fee Revenue per Stock: Finance vs Trading ($K)</p>
           <canvas id="ch-trader-hours"></canvas>
+          <div class="recon-alert">
+            &#9888; <strong>NVDA anomaly identified</strong> — Trading dept fees were calculated using the pre-split share price ($1,208/share) instead of the post-split price ($120.8/share) after NVDA's 10:1 stock split in June 2024. Fee notional was 10&times; overstated in the Trading database. Root cause confirmed after cross-database investigation. Calculation corrected in pipeline.
+          </div>
         </div>
         <div class="db-box">
           <p class="db-box-title">Gap by Root Cause ($K)</p>
