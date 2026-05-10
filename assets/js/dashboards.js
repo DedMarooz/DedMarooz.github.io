@@ -1,12 +1,12 @@
 // ── Theme constants ────────────────────────────────────────────────────────────
 const C = {
-  accent:  '#64ffda',
-  blue:    '#4dc3ff',
-  red:     '#ff6b6b',
-  yellow:  '#ffd93d',
-  slate:   '#8892b0',
-  light:   '#ccd6f6',
-  grid:    'rgba(204,214,246,.07)',
+  accent:  '#60A5FA',
+  blue:    '#93C5FD',
+  red:     '#F87171',
+  yellow:  '#FBBF24',
+  slate:   '#64748B',
+  light:   '#CBD5E1',
+  grid:    'rgba(148,163,184,.1)',
   font:    "'Inter', sans-serif",
   mono:    "'Fira Code', monospace"
 };
