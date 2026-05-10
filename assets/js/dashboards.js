@@ -299,60 +299,132 @@ function renderCommodity() {
   });
 }
 
-// ── Dashboard 4: AI Research Assistant ────────────────────────────────────────
-function renderAI() {
-  // Line: AAPL 90-day price
-  const aaplDays = Array.from({ length: 90 }, (_, i) => {
-    const d = new Date('2024-07-01');
-    d.setDate(d.getDate() + i);
-    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-  });
-  const aapl = [182,183,181,184,186,185,183,182,184,187,189,188,186,185,184,186,188,190,189,187,186,188,191,193,192,190,189,191,193,195,194,192,191,190,192,194,196,195,193,192,191,190,188,187,186,188,190,189,188,186,185,184,183,182,184,186,188,187,186,185,184,186,188,190,191,190,188,187,188,190,191,192,191,190,189,188,189,190,191,193,192,191,190,189,188,189,190,191,192,189];
-  mk('ch-ai-price', {
-    type: 'line',
-    data: {
-      labels: aaplDays,
-      datasets: [{
-        label: 'AAPL ($)',
-        data: aapl,
-        borderColor: C.accent,
-        backgroundColor: 'rgba(100,255,218,.07)',
-        fill: true, tension: 0.3,
-        pointRadius: 0, pointHoverRadius: 4
-      }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false }, tooltip },
-      scales: {
-        x: { grid: { color: C.grid }, ticks: { color: C.slate, maxTicksLimit: 8 } },
-        y: { grid: { color: C.grid }, ticks: { color: C.slate, callback: v => '$' + v } }
-      }
-    }
-  });
+// ── Dashboard 4: Genie AI Chat ─────────────────────────────────────────────────
+const genieResponses = {
+  'top-stocks': {
+    q: 'What were the top 10 stocks by trade volume yesterday?',
+    html: `<p>Here are yesterday's top 10 most traded instruments on the platform:</p>
+      <table>
+        <thead><tr><th>#</th><th>Ticker</th><th>Trades</th><th>Share</th><th>1d Change</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="hl">NVDA</td><td>284,124</td><td>8.3%</td><td class="pos">+4.2%</td></tr>
+          <tr><td>2</td><td class="hl">AAPL</td><td>231,870</td><td>6.8%</td><td class="pos">+1.1%</td></tr>
+          <tr><td>3</td><td class="hl">TSLA</td><td>198,441</td><td>5.8%</td><td class="neg">−2.3%</td></tr>
+          <tr><td>4</td><td class="hl">META</td><td>176,320</td><td>5.2%</td><td class="pos">+3.1%</td></tr>
+          <tr><td>5</td><td class="hl">AMZN</td><td>154,890</td><td>4.5%</td><td class="pos">+0.8%</td></tr>
+          <tr><td>6</td><td class="hl">MSFT</td><td>142,100</td><td>4.2%</td><td class="pos">+0.5%</td></tr>
+          <tr><td>7</td><td class="hl">GOOGL</td><td>128,340</td><td>3.8%</td><td class="neg">−0.4%</td></tr>
+          <tr><td>8</td><td class="hl">AMD</td><td>119,200</td><td>3.5%</td><td class="pos">+2.7%</td></tr>
+          <tr><td>9</td><td class="hl">BTC/USD</td><td>108,760</td><td>3.2%</td><td class="pos">+1.9%</td></tr>
+          <tr><td>10</td><td class="hl">SPY</td><td>97,430</td><td>2.9%</td><td class="pos">+0.3%</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:.55rem;font-size:.79rem;color:#64748B">Total platform trades yesterday: 3,415,824</p>`
+  },
+  'fees': {
+    q: 'Where did we earn the most fees this week?',
+    html: `<p>This week's fee revenue breakdown by asset class:</p>
+      <div class="genie-kv">
+        <div class="genie-kv-item"><div class="genie-kv-label">Crypto</div><div class="genie-kv-value pos">$184,320</div></div>
+        <div class="genie-kv-item"><div class="genie-kv-label">Stocks</div><div class="genie-kv-value">$142,870</div></div>
+        <div class="genie-kv-item"><div class="genie-kv-label">ETFs</div><div class="genie-kv-value">$67,410</div></div>
+        <div class="genie-kv-item"><div class="genie-kv-label">Commodities</div><div class="genie-kv-value warn">$38,920</div></div>
+      </div>
+      <p style="margin-top:.65rem"><strong>Top earner:</strong> BTC/USD spread — $52,140 (28% of crypto fees). Volumes spiked Mon–Tue on ETF news, driving an extra <strong>$31K</strong> vs the prior week.</p>`
+  },
+  'latency': {
+    q: 'What was average order execution latency yesterday?',
+    html: `<p>Yesterday's order execution latency report:</p>
+      <div class="genie-kv">
+        <div class="genie-kv-item"><div class="genie-kv-label">Avg Latency</div><div class="genie-kv-value pos">38ms</div></div>
+        <div class="genie-kv-item"><div class="genie-kv-label">P99 Latency</div><div class="genie-kv-value warn">142ms</div></div>
+        <div class="genie-kv-item"><div class="genie-kv-label">Peak Hour</div><div class="genie-kv-value">9:30am EST</div></div>
+        <div class="genie-kv-item"><div class="genie-kv-label">vs Prior Day</div><div class="genie-kv-value pos">−4ms</div></div>
+      </div>
+      <p style="margin-top:.65rem">Spike to <strong style="color:#FBBF24">214ms</strong> at 9:31am EST — market open surge (47K concurrent orders). Resolved in 90s. All executions completed within SLA.</p>`
+  },
+  'risk': {
+    q: 'Show me clients with large withdrawals in the last 5 days',
+    html: `<p>5-day risk scan — clients flagged for large withdrawals after negative P&amp;L:</p>
+      <table>
+        <thead><tr><th>Client ID</th><th>5d P&amp;L</th><th>Withdrawal</th><th>Signal</th></tr></thead>
+        <tbody>
+          <tr><td class="hl">USR-8841</td><td class="neg">−$18,420</td><td>$22,000</td><td class="neg">⚠ High</td></tr>
+          <tr><td class="hl">USR-3392</td><td class="neg">−$9,870</td><td>$15,000</td><td class="neg">⚠ High</td></tr>
+          <tr><td class="hl">USR-6107</td><td class="neg">−$4,210</td><td>$8,500</td><td style="color:#FBBF24">~ Medium</td></tr>
+          <tr><td class="hl">USR-2954</td><td class="neg">−$2,100</td><td>$5,000</td><td style="color:#FBBF24">~ Medium</td></tr>
+          <tr><td class="hl">USR-9013</td><td class="neg">−$1,450</td><td>$3,200</td><td>Monitor</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:.55rem;font-size:.79rem;color:#64748B">Recommendation: flag USR-8841 and USR-3392 for retention team outreach.</p>`
+  },
+  'hours': {
+    q: 'Compare pre-market vs regular hours fee rates',
+    html: `<p>Fee rate structure by trading session (dealing room config):</p>
+      <table>
+        <thead><tr><th>Session</th><th>Hours (EST)</th><th>Spread</th><th>Volume %</th><th>Revenue %</th></tr></thead>
+        <tbody>
+          <tr><td class="hl">Pre-market</td><td>4:00 – 9:30</td><td style="color:#FBBF24">1.5×</td><td>12%</td><td class="pos">21%</td></tr>
+          <tr><td class="hl">Regular</td><td>9:30 – 16:00</td><td class="pos">1.0×</td><td>71%</td><td>64%</td></tr>
+          <tr><td class="hl">After-hours</td><td>16:00 – 20:00</td><td style="color:#FBBF24">1.5×</td><td>17%</td><td class="pos">15%</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:.65rem">Pre/after-market carry a <strong>1.5× spread multiplier</strong> for lower liquidity. Despite 29% of volume, extended sessions generate <strong>36% of spread revenue</strong>.</p>`
+  }
+};
 
-  // Bar: quarterly revenue
-  mk('ch-ai-revenue', {
-    type: 'bar',
-    data: {
-      labels: ['Q1 23', 'Q2 23', 'Q3 23', 'Q4 23', 'Q1 24', 'Q2 24'],
-      datasets: [{
-        label: 'Revenue ($B)',
-        data: [117.2, 94.8, 81.8, 119.6, 90.8, 85.8],
-        backgroundColor: [
-          'rgba(100,255,218,.4)','rgba(100,255,218,.4)','rgba(100,255,218,.4)',
-          'rgba(100,255,218,.4)','rgba(100,255,218,.9)','rgba(100,255,218,.9)'
-        ],
-        borderRadius: 5, borderSkipped: false
-      }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false }, tooltip },
-      scales: {
-        x: { grid: { color: C.grid }, ticks: { color: C.slate } },
-        y: { grid: { color: C.grid }, ticks: { color: C.slate, callback: v => '$' + v + 'B' } }
-      }
-    }
+function renderAI() {
+  const chat = document.getElementById('genie-chat');
+  if (!chat) return;
+
+  chat.innerHTML = `
+    <div class="genie-msg genie-ai">
+      <div class="genie-avatar">G</div>
+      <div class="genie-bubble">
+        <p>Hi! I'm <strong>Genie</strong>, the AI business analyst trained on eToro's trading data. I know the table structures, fee rules, KPI definitions, and business logic of the dealing room.</p>
+        <p>Click a question below to see how management used me every day.</p>
+      </div>
+    </div>`;
+
+  document.querySelectorAll('.genie-btn').forEach(btn => {
+    btn.disabled = false;
+    btn.addEventListener('click', () => askGenie(btn.dataset.q));
   });
+}
+
+function askGenie(qKey) {
+  const resp = genieResponses[qKey];
+  if (!resp) return;
+  const chat = document.getElementById('genie-chat');
+  if (!chat) return;
+
+  document.querySelectorAll('.genie-btn').forEach(b => b.disabled = true);
+
+  chat.insertAdjacentHTML('beforeend', `
+    <div class="genie-msg genie-user">
+      <div class="genie-avatar user-av">Me</div>
+      <div class="genie-bubble">${resp.q}</div>
+    </div>`);
+
+  const thinkId = 'gt' + Date.now();
+  chat.insertAdjacentHTML('beforeend', `
+    <div class="genie-msg genie-ai" id="${thinkId}">
+      <div class="genie-avatar">G</div>
+      <div class="genie-thinking">
+        <div class="genie-dot"></div><div class="genie-dot"></div><div class="genie-dot"></div>
+      </div>
+    </div>`);
+  chat.scrollTop = chat.scrollHeight;
+
+  setTimeout(() => {
+    const el = document.getElementById(thinkId);
+    if (el) el.remove();
+    chat.insertAdjacentHTML('beforeend', `
+      <div class="genie-msg genie-ai">
+        <div class="genie-avatar">G</div>
+        <div class="genie-bubble">${resp.html}</div>
+      </div>`);
+    chat.scrollTop = chat.scrollHeight;
+    document.querySelectorAll('.genie-btn').forEach(b => b.disabled = false);
+  }, 1500);
 }
