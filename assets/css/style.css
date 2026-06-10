@@ -507,3 +507,184 @@ ul { list-style: none; }
 /* ─── Animations ─────────────────────────────────────────────────────────────── */
 .fade-up { opacity: 0; transform: translateY(20px); transition: opacity .55s ease, transform .55s ease; }
 .fade-up.visible { opacity: 1; transform: none; }
+
+/* ─── Hero Badges ────────────────────────────────────────────────────────────── */
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin-bottom: 2.2rem;
+}
+.badge {
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  font-weight: 500;
+  color: var(--blue-mid);
+  background: rgba(74,142,232,.1);
+  border: 1px solid rgba(74,142,232,.28);
+  padding: .3rem .85rem;
+  border-radius: 50px;
+  letter-spacing: .03em;
+  white-space: nowrap;
+}
+.badge-highlight {
+  background: rgba(74,142,232,.2);
+  border-color: var(--blue);
+  color: var(--white);
+  font-weight: 600;
+}
+
+/* ─── Project Cards — Case Study Format ─────────────────────────────────────── */
+.card-flagship {
+  border-top: 3px solid var(--cyan);
+  background: linear-gradient(160deg, var(--surface) 0%, rgba(17,29,51,.85) 100%);
+}
+.card-flagship:hover {
+  border-top-color: var(--cyan);
+  box-shadow: 0 0 0 1px rgba(56,189,248,.35), 0 12px 40px rgba(56,189,248,.12);
+  border-color: rgba(56,189,248,.35);
+}
+.card-badge-flag {
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  font-weight: 600;
+  color: var(--cyan);
+  background: rgba(56,189,248,.1);
+  border: 1px solid rgba(56,189,248,.35);
+  padding: .2rem .6rem;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+.case-block {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+.case-label {
+  font-family: var(--font-mono);
+  font-size: .67rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--cyan);
+  font-weight: 600;
+}
+.card-flagship .case-label { color: var(--cyan); }
+.case-text {
+  font-size: .88rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.case-impact .case-label { color: var(--blue-mid); }
+.case-placeholder {
+  font-style: italic;
+  color: rgba(122,145,176,.6) !important;
+  font-size: .82rem !important;
+}
+
+/* ─── How I Think About Data ─────────────────────────────────────────────────── */
+.thinking { background: var(--bg-alt) !important; }
+.thinking-steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.thinking-step {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.thinking-step:hover { border-color: var(--border-b); box-shadow: 0 4px 20px rgba(74,142,232,.08); }
+.step-num {
+  font-family: var(--font-head);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: rgba(74,142,232,.25);
+  line-height: 1;
+  flex-shrink: 0;
+  padding-top: .15rem;
+  min-width: 2rem;
+}
+.step-title {
+  font-family: var(--font-head);
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: .4rem;
+  line-height: 1.3;
+}
+.step-desc {
+  font-size: .88rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+@media (max-width: 768px) {
+  .thinking-steps { grid-template-columns: 1fr; }
+}
+
+/* ─── Case Study Modals ──────────────────────────────────────────────────────── */
+.db-panel-case { max-width: 760px; }
+.case-study {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.cs-section {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.cs-section:last-child { border-bottom: none; }
+.cs-heading {
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: #60A5FA;
+  margin-bottom: .5rem;
+  font-weight: 600;
+}
+.cs-text {
+  font-size: .9rem;
+  color: #94A3B8;
+  line-height: 1.75;
+}
+.cs-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  margin-top: .25rem;
+}
+.cs-list li {
+  font-size: .9rem;
+  color: #94A3B8;
+  padding-left: 1.1rem;
+  position: relative;
+  line-height: 1.65;
+}
+.cs-list li::before { content: '▸'; position: absolute; left: 0; color: #60A5FA; }
+.cs-ph {
+  background: rgba(96,165,250,.04);
+  border-radius: 6px;
+  padding: .85rem 1rem !important;
+  margin: .25rem 0;
+  border: 1px dashed rgba(96,165,250,.18) !important;
+}
+.cs-ph .cs-text {
+  color: rgba(148,163,184,.55);
+  font-style: italic;
+  font-size: .85rem;
+}
+
+/* ─── Contact — Resume button variant ───────────────────────────────────────── */
+.contact-resume {
+  border-color: rgba(56,189,248,.4);
+}
+.contact-resume .contact-label { color: var(--cyan); }
+.contact-resume:hover { border-color: var(--cyan); }
