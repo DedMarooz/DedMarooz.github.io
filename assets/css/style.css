@@ -243,13 +243,13 @@ ul { list-style: none; }
 .timeline::before {
   content: '';
   position: absolute;
-  left: 148px; top: 8px; bottom: 40px;
+  left: 178px; top: 8px; bottom: 40px;
   width: 2px;
   background: linear-gradient(to bottom, var(--blue), transparent);
 }
 .timeline-item {
   display: grid;
-  grid-template-columns: 148px 1fr;
+  grid-template-columns: 178px 1fr;
   gap: 2.5rem;
   padding-bottom: 3rem;
   position: relative;
@@ -258,7 +258,7 @@ ul { list-style: none; }
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: 139px; top: 5px;
+  left: 169px; top: 5px;
   width: 18px; height: 18px;
   border-radius: 50%;
   background: var(--blue);
