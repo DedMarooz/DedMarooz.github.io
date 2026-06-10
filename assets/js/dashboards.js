@@ -1,18 +1,19 @@
 // ── Theme constants ────────────────────────────────────────────────────────────
 const C = {
-  accent:  '#60A5FA',
-  blue:    '#93C5FD',
+  accent:  '#4D8DF7',
+  blue:    '#82AFFF',
+  green:   '#34D399',
   red:     '#F87171',
   yellow:  '#FBBF24',
-  slate:   '#64748B',
-  light:   '#CBD5E1',
-  grid:    'rgba(148,163,184,.1)',
+  slate:   '#5E7190',
+  light:   '#C7D3E6',
+  grid:    'rgba(151,170,200,.08)',
   font:    "'Inter', sans-serif",
   mono:    "'Fira Code', monospace"
 };
 
 const tooltip = {
-  backgroundColor: '#0a192f',
+  backgroundColor: '#0B1322',
   borderColor: C.accent,
   borderWidth: 1,
   titleColor: C.light,
@@ -67,6 +68,214 @@ function render(id) {
   if (id === 'modal-market')    renderMarket();
   if (id === 'modal-commodity') renderCommodity();
   if (id === 'modal-ai')        renderAI();
+  if (id === 'modal-sltp')      renderSLTP();
+  if (id === 'modal-hedge')     renderHedge();
+  if (id === 'modal-pnl')       renderPnl();
+}
+
+// ── Flagship 1: Pre-Market SLTP Monitoring ─────────────────────────────────────
+function renderSLTP() {
+  const hours   = ['4am', '5am', '6am', '7am', '8am', '8:30', '9am', '9:25'];
+  const volume  = [320, 410, 690, 980, 1450, 1720, 2150, 2480];
+  const flagged = [2, 3, 5, 9, 14, 11, 7, 4];
+
+  mk('ch-sltp-flow', {
+    type: 'bar',
+    data: {
+      labels: hours,
+      datasets: [
+        {
+          type: 'line',
+          label: 'Orders scanned',
+          data: volume,
+          borderColor: C.accent,
+          backgroundColor: 'rgba(77,141,247,.10)',
+          fill: true, tension: 0.4,
+          pointRadius: 3, pointBackgroundColor: C.accent,
+          yAxisID: 'y'
+        },
+        {
+          type: 'bar',
+          label: 'Flagged',
+          data: flagged,
+          backgroundColor: 'rgba(251,191,36,.75)',
+          borderRadius: 4, borderSkipped: false,
+          yAxisID: 'y1',
+          barPercentage: 0.45
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { labels: { color: C.light, font: { family: C.font }, boxWidth: 14 } }, tooltip },
+      scales: {
+        x:  { grid: { color: C.grid }, ticks: { color: C.slate, font: { family: C.font, size: 11 } } },
+        y:  { position: 'left', grid: { color: C.grid }, ticks: { color: C.slate }, title: { display: true, text: 'Orders', color: C.slate, font: { size: 10 } } },
+        y1: { position: 'right', grid: { drawOnChartArea: false }, ticks: { color: '#FBBF24' }, title: { display: true, text: 'Flagged', color: '#FBBF24', font: { size: 10 } } }
+      }
+    }
+  });
+
+  const instr = ['TSLA', 'NVDA', 'BTC/USD', 'AAPL', 'SPX500'];
+  const flags = [11, 9, 7, 6, 5];
+  mk('ch-sltp-instr', {
+    type: 'bar',
+    data: {
+      labels: instr,
+      datasets: [{
+        label: 'Flagged orders',
+        data: flags,
+        backgroundColor: 'rgba(77,141,247,.7)',
+        borderRadius: 5, borderSkipped: false
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      indexAxis: 'y',
+      plugins: { legend: { display: false }, tooltip },
+      scales: {
+        x: { grid: { color: C.grid }, ticks: { color: C.slate, stepSize: 2 } },
+        y: { grid: { display: false }, ticks: { color: C.light, font: { family: C.mono, size: 11 } } }
+      }
+    }
+  });
+}
+
+// ── Flagship 2: Hedge Execution Fail Monitor ───────────────────────────────────
+function renderHedge() {
+  const days = Array.from({ length: 30 }, (_, i) => 'D' + (i + 1));
+  const ratio = [0.6,0.5,0.7,0.8,0.6,0.5,0.4,0.7,0.9,1.1,0.8,0.7,0.6,0.9,1.0,1.2,1.4,2.6,1.3,0.9,0.8,0.7,0.9,1.0,1.1,0.9,0.8,1.0,1.1,1.1];
+  const threshold = Array(30).fill(1.5);
+
+  mk('ch-hedge-trend', {
+    type: 'line',
+    data: {
+      labels: days,
+      datasets: [
+        {
+          label: 'Fail ratio %',
+          data: ratio,
+          borderColor: C.accent,
+          backgroundColor: 'rgba(77,141,247,.08)',
+          fill: true, tension: 0.35,
+          pointRadius: ratio.map(v => v > 1.5 ? 5 : 0),
+          pointBackgroundColor: ratio.map(v => v > 1.5 ? C.red : C.accent),
+          pointHoverRadius: 5
+        },
+        {
+          label: 'Alert threshold',
+          data: threshold,
+          borderColor: C.red,
+          borderDash: [6, 4],
+          borderWidth: 1.5,
+          pointRadius: 0, fill: false
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: C.light, font: { family: C.font }, boxWidth: 14 } },
+        tooltip: { ...tooltip, callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y}%` } }
+      },
+      scales: {
+        x: { grid: { color: C.grid }, ticks: { color: C.slate, maxTicksLimit: 10, font: { size: 10 } } },
+        y: { grid: { color: C.grid }, min: 0, max: 3, ticks: { color: C.slate, callback: v => v + '%' } }
+      }
+    }
+  });
+
+  const groups = ['Crypto', 'Commodities', 'Indices', 'Stocks', 'FX'];
+  const gRatio = [1.9, 1.1, 0.7, 0.5, 0.3];
+  mk('ch-hedge-seg', {
+    type: 'bar',
+    data: {
+      labels: groups,
+      datasets: [{
+        label: 'Fail ratio %',
+        data: gRatio,
+        backgroundColor: gRatio.map(v => v > 1.5 ? 'rgba(248,113,113,.75)' : 'rgba(77,141,247,.7)'),
+        borderRadius: 5, borderSkipped: false
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      indexAxis: 'y',
+      plugins: { legend: { display: false }, tooltip: { ...tooltip, callbacks: { label: ctx => ` ${ctx.parsed.x}%` } } },
+      scales: {
+        x: { grid: { color: C.grid }, ticks: { color: C.slate, callback: v => v + '%' } },
+        y: { grid: { display: false }, ticks: { color: C.light, font: { family: C.font, size: 11 } } }
+      }
+    }
+  });
+}
+
+// ── Flagship 3: Trading Revenue & PnL ──────────────────────────────────────────
+function renderPnl() {
+  const days  = ['Mon','Tue','Wed','Thu','Fri','Mon','Tue','Wed','Thu','Fri','Mon','Tue','Wed','Thu'];
+  const daily = [118, 132, 124, 141, 156, 109, 127, 138, 119, 148, 131, 142, 125, 134];
+  const cumulative = [];
+  daily.reduce((acc, v, i) => cumulative[i] = acc + v, 0);
+
+  mk('ch-pnl-daily', {
+    type: 'bar',
+    data: {
+      labels: days,
+      datasets: [
+        {
+          type: 'bar',
+          label: 'Daily revenue ($K)',
+          data: daily,
+          backgroundColor: 'rgba(77,141,247,.65)',
+          borderRadius: 4, borderSkipped: false,
+          yAxisID: 'y'
+        },
+        {
+          type: 'line',
+          label: 'Cumulative ($K)',
+          data: cumulative,
+          borderColor: C.green,
+          backgroundColor: 'transparent',
+          tension: 0.3, pointRadius: 0,
+          borderWidth: 2,
+          yAxisID: 'y1'
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: C.light, font: { family: C.font }, boxWidth: 14 } },
+        tooltip: { ...tooltip, callbacks: { label: ctx => ` ${ctx.dataset.label.replace(' ($K)','')}: $${ctx.parsed.y}K` } }
+      },
+      scales: {
+        x:  { grid: { color: C.grid }, ticks: { color: C.slate, font: { size: 10 } } },
+        y:  { position: 'left', grid: { color: C.grid }, ticks: { color: C.slate, callback: v => '$' + v + 'K' } },
+        y1: { position: 'right', grid: { drawOnChartArea: false }, ticks: { color: C.green, callback: v => '$' + (v/1000).toFixed(1) + 'M' } }
+      }
+    }
+  });
+
+  mk('ch-pnl-class', {
+    type: 'doughnut',
+    data: {
+      labels: ['Stocks', 'Crypto', 'Indices', 'Commodities', 'FX'],
+      datasets: [{
+        data: [38, 27, 16, 11, 8],
+        backgroundColor: ['#4D8DF7', '#A78BFA', '#34D399', '#FBBF24', '#5E7190'],
+        borderColor: '#0B1322',
+        borderWidth: 3
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      cutout: '62%',
+      plugins: {
+        legend: { position: 'right', labels: { color: C.light, font: { family: C.font, size: 11 }, boxWidth: 12, padding: 10 } },
+        tooltip: { ...tooltip, callbacks: { label: ctx => ` ${ctx.label}: ${ctx.parsed}%` } }
+      }
+    }
+  });
 }
 
 // ── Dashboard 1: Finance & Trading Reconciliation ─────────────────────────────
@@ -206,7 +415,7 @@ function renderMarket() {
           label: 'S&P 500 Futures',
           data: futures,
           borderColor: C.accent,
-          backgroundColor: 'rgba(100,255,218,.09)',
+          backgroundColor: 'rgba(77,141,247,.10)',
           fill: true, tension: 0.4,
           pointRadius: 3, pointBackgroundColor: C.accent
         },
@@ -237,7 +446,7 @@ function renderMarket() {
       datasets: [{
         label: 'Pre-market Change %',
         data: changes,
-        backgroundColor: changes.map(v => v >= 0 ? 'rgba(100,255,218,.75)' : 'rgba(255,107,107,.75)'),
+        backgroundColor: changes.map(v => v >= 0 ? 'rgba(52,211,153,.75)' : 'rgba(248,113,113,.75)'),
         borderRadius: 5,
         borderSkipped: false
       }]
@@ -263,7 +472,7 @@ function renderMarket() {
       datasets: [{
         label: '% Change',
         data: sPerf,
-        backgroundColor: sPerf.map(v => v >= 0 ? 'rgba(100,255,218,.7)' : 'rgba(255,107,107,.7)'),
+        backgroundColor: sPerf.map(v => v >= 0 ? 'rgba(52,211,153,.7)' : 'rgba(248,113,113,.7)'),
         borderRadius: 5,
         borderSkipped: false
       }]
@@ -298,7 +507,7 @@ function renderCommodity() {
         label,
         data: color === C.blue ? natGas : wti,
         borderColor: color,
-        backgroundColor: color === C.blue ? 'rgba(77,195,255,.08)' : 'rgba(255,217,61,.08)',
+        backgroundColor: color === C.blue ? 'rgba(130,175,255,.08)' : 'rgba(251,191,36,.08)',
         fill: true, tension: 0.4,
         pointRadius: 0, pointHoverRadius: 4
       }]
@@ -328,13 +537,13 @@ function renderCommodity() {
         {
           label: 'Natural Gas',
           data: gasWow,
-          backgroundColor: gasWow.map(v => v >= 0 ? 'rgba(77,195,255,.8)' : 'rgba(77,195,255,.3)'),
+          backgroundColor: gasWow.map(v => v >= 0 ? 'rgba(130,175,255,.8)' : 'rgba(130,175,255,.3)'),
           borderRadius: 4, borderSkipped: false
         },
         {
           label: 'WTI Oil',
           data: oilWow,
-          backgroundColor: oilWow.map(v => v >= 0 ? 'rgba(255,217,61,.8)' : 'rgba(255,217,61,.3)'),
+          backgroundColor: oilWow.map(v => v >= 0 ? 'rgba(251,191,36,.8)' : 'rgba(251,191,36,.3)'),
           borderRadius: 4, borderSkipped: false
         }
       ]
@@ -432,8 +641,8 @@ function renderAI() {
     <div class="genie-msg genie-ai">
       <div class="genie-avatar">G</div>
       <div class="genie-bubble">
-        <p>Hi! I'm <strong>Genie</strong>, the AI business analyst trained on eToro's trading data. I know the table structures, fee rules, KPI definitions, and business logic of the dealing room.</p>
-        <p>Click a question below to see how management used me every day.</p>
+        <p>Hi! I'm <strong>Genie</strong>, an AI analyst trained on trading data — table structures, fee rules, KPI definitions, and business logic.</p>
+        <p>Click a question below to see how managers used a tool like me every day.</p>
       </div>
     </div>`;
 

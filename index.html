@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Alex Zaretski — Data Analyst with 4+ years in financial markets, trading systems, SQL, Python, Databricks, and Tableau." />
-  <title>Alex Zaretski — Data Analyst</title>
+  <meta name="description" content="Alexander Zaretski — Data Analyst with 4 years at eToro. SQL, Python, Tableau, Databricks, and AI-assisted analytics. Every project has an interactive demo." />
+  <title>Alexander Zaretski — Data Analyst</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%234D8DF7'/%3E%3Ctext x='16' y='21.5' font-family='Arial' font-size='13' font-weight='700' fill='white' text-anchor='middle'%3EAZ%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 </head>
@@ -16,12 +17,13 @@
   <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo">AZ</a>
+      <a href="#hero" class="nav-logo">AZ<span class="logo-dot">.</span></a>
       <ul class="nav-links">
         <li><a href="#projects">Projects</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#thinking">Process</a></li>
+        <li><a href="#thinking">How I Work</a></li>
+        <li><a href="assets/resume.pdf" target="_blank">Resume</a></li>
         <li><a href="#contact" class="nav-cta">Contact</a></li>
       </ul>
       <button class="nav-burger" id="burger" aria-label="menu">&#9776;</button>
@@ -29,234 +31,228 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero" id="hero">
+  <header class="hero" id="hero">
     <div class="hero-inner">
-      <p class="hero-greeting">Hi, my name is</p>
-      <h1 class="hero-name">Alex Zaretski.</h1>
-      <h2 class="hero-sub">Data Analyst focused on business impact, trading systems, and automation</h2>
+      <p class="hero-eyebrow">Data Analyst &middot; Trading Systems &middot; AI Analytics</p>
+      <h1 class="hero-name">Alexander Zaretski</h1>
+      <p class="hero-sub">I turn trading data into decisions.</p>
       <p class="hero-desc">
-        4+ years of experience turning complex financial and operational data into dashboards,
-        insights, and automated workflows. Strong in SQL, Python, Databricks, Tableau, and
-        stakeholder-facing analytics.
+        Four years at eToro working with live trading data — building the dashboards,
+        monitoring systems, and automations that operations, finance, and risk teams
+        used every day. Strong SQL and Python. Now building with AI on top of that.
       </p>
-      <div class="hero-badges">
-        <span class="badge">4+ Years Experience</span>
-        <span class="badge badge-highlight">eToro</span>
-        <span class="badge">Financial Markets</span>
-        <span class="badge">SQL</span>
-        <span class="badge">Python</span>
-        <span class="badge">Databricks</span>
-        <span class="badge">Tableau</span>
-        <span class="badge">Automation</span>
-      </div>
       <div class="hero-btns">
-        <a href="#projects" class="btn btn-accent">See My Work</a>
-        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+        <a href="#projects" class="btn btn-accent">View projects</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat">
+          <span class="hstat-num">4+</span>
+          <span class="hstat-label">Years in fintech data</span>
+        </div>
+        <div class="hstat">
+          <span class="hstat-num">2</span>
+          <span class="hstat-label">Roles at eToro</span>
+        </div>
+        <div class="hstat">
+          <span class="hstat-num">4</span>
+          <span class="hstat-label">Departments served</span>
+        </div>
+        <div class="hstat">
+          <span class="hstat-num">7</span>
+          <span class="hstat-label">Interactive demos below</span>
+        </div>
       </div>
     </div>
-  </section>
+  </header>
+
+  <main>
 
   <!-- PROJECTS -->
-  <section class="section projects" id="projects">
+  <section class="section" id="projects">
     <div class="container">
-      <h2 class="section-title">Selected Projects</h2>
-      <p class="section-sub">Flagship work from eToro and public-data demos — each built to solve a real business problem.</p>
+      <p class="section-eyebrow">01 &mdash; Work</p>
+      <h2 class="section-title">Projects</h2>
+      <p class="section-sub">
+        Three projects from my work at eToro, and four demos built on public data.
+        Every card opens a live interactive demo — click any of them.
+      </p>
+
       <div class="projects-grid">
 
         <!-- FLAGSHIP 1: Pre-Market SLTP Monitoring -->
         <article class="card card-flagship">
           <div class="card-top">
-            <span class="card-badge-flag">Flagship</span>
-            <span class="card-icon">📡</span>
+            <span class="card-tile">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </span>
+            <span class="card-flag">eToro</span>
           </div>
-          <h3 class="card-title">Pre-Market SLTP Monitoring</h3>
-          <div class="case-block">
-            <span class="case-label">Business Problem</span>
-            <p class="case-text">Pre-market stop-loss and take-profit order behavior needed active monitoring to reduce operational risk before market open.</p>
-          </div>
-          <div class="case-block">
-            <span class="case-label">My Role</span>
-            <p class="case-text">Built the analytical monitoring logic, detection framework for abnormal patterns, and reporting dashboards for operational teams.</p>
-          </div>
-          <div class="tags">
-            <span class="tag">SQL</span>
-            <span class="tag">Databricks</span>
-            <span class="tag">Tableau</span>
-            <span class="tag">Python</span>
-          </div>
-          <div class="case-block case-impact">
-            <span class="case-label">Impact</span>
-            <p class="case-text case-placeholder">[Ask Alex for real metric / result]</p>
-          </div>
-          <button class="btn-view-dash" data-modal="modal-sltp">Read Case Study &#x2192;</button>
+          <h3 class="card-title">Pre-Market Order Monitoring</h3>
+          <p class="card-summary">A system that checks stop-loss and take-profit orders before the US market opens, and alerts the operations team about unusual ones.</p>
+          <dl class="case-rows">
+            <div class="case-row">
+              <dt>Problem</dt>
+              <dd>Unusual orders placed overnight could create losses at market open. Nobody could see them in time.</dd>
+            </div>
+            <div class="case-row">
+              <dt>What I built</dt>
+              <dd>SQL detection logic in Databricks that scans pre-market orders, flags abnormal patterns, and alerts the team before the open.</dd>
+            </div>
+          </dl>
+          <p class="case-result"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>The team saw problems before the market opened — not after.</p>
+          <p class="card-stack">SQL &middot; Databricks &middot; Python &middot; Tableau</p>
+          <button class="btn-demo" data-modal="modal-sltp">Open interactive demo<span class="arr">&#x2192;</span></button>
         </article>
 
-        <!-- FLAGSHIP 2: Hedge Execution Fail Ratio -->
+        <!-- FLAGSHIP 2: Hedge Execution Fail Monitor -->
         <article class="card card-flagship">
           <div class="card-top">
-            <span class="card-badge-flag">Flagship</span>
-            <span class="card-icon">&#x26A0;&#xFE0F;</span>
+            <span class="card-tile">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </span>
+            <span class="card-flag">eToro</span>
           </div>
-          <h3 class="card-title">Hedge Execution Fail Ratio</h3>
-          <div class="case-block">
-            <span class="case-label">Business Problem</span>
-            <p class="case-text">Hedge execution failures created operational risk. There was no structured framework to track frequency, identify root causes, or compare failure rates.</p>
-          </div>
-          <div class="case-block">
-            <span class="case-label">My Role</span>
-            <p class="case-text">Designed and built the fail ratio metric, monitoring framework, and dashboards for operations and risk stakeholders.</p>
-          </div>
-          <div class="tags">
-            <span class="tag">SQL</span>
-            <span class="tag">Databricks</span>
-            <span class="tag">Python</span>
-            <span class="tag">Tableau</span>
-          </div>
-          <div class="case-block case-impact">
-            <span class="case-label">Impact</span>
-            <p class="case-text case-placeholder">[Ask Alex for real metric / result]</p>
-          </div>
-          <button class="btn-view-dash" data-modal="modal-hedge">Read Case Study &#x2192;</button>
+          <h3 class="card-title">Hedge Execution Fail Monitor</h3>
+          <p class="card-summary">A metric and dashboard that tracks failed hedge executions and shows exactly where the failures come from.</p>
+          <dl class="case-rows">
+            <div class="case-row">
+              <dt>Problem</dt>
+              <dd>Hedge orders sometimes failed, leaving the company exposed to market risk. There was no way to measure how often, or why.</dd>
+            </div>
+            <div class="case-row">
+              <dt>What I built</dt>
+              <dd>Defined the fail-ratio metric, built the SQL pipeline, and created a dashboard that breaks failures down by instrument, venue, and time.</dd>
+            </div>
+          </dl>
+          <p class="case-result"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Failures became a number the team could track daily — instead of guesswork.</p>
+          <p class="card-stack">SQL &middot; Databricks &middot; Python &middot; Tableau</p>
+          <button class="btn-demo" data-modal="modal-hedge">Open interactive demo<span class="arr">&#x2192;</span></button>
         </article>
 
-        <!-- FLAGSHIP 3: Trading Revenue / PnL Analytics -->
+        <!-- FLAGSHIP 3: Trading Revenue & PnL -->
         <article class="card card-flagship">
           <div class="card-top">
-            <span class="card-badge-flag">Flagship</span>
-            <span class="card-icon">&#x1F4B9;</span>
+            <span class="card-tile">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </span>
+            <span class="card-flag">eToro</span>
           </div>
           <h3 class="card-title">Trading Revenue &amp; PnL Analytics</h3>
-          <div class="case-block">
-            <span class="case-label">Business Problem</span>
-            <p class="case-text">Revenue and PnL logic lacked consistent monitoring and reporting, making it difficult for business stakeholders to track performance reliably.</p>
-          </div>
-          <div class="case-block">
-            <span class="case-label">My Role</span>
-            <p class="case-text">Built the PnL and revenue calculation logic, reporting pipeline, and Tableau dashboards used by business and executive teams.</p>
-          </div>
-          <div class="tags">
-            <span class="tag">SQL</span>
-            <span class="tag">Python</span>
-            <span class="tag">Tableau</span>
-            <span class="tag">Databricks</span>
-          </div>
-          <div class="case-block case-impact">
-            <span class="case-label">Impact</span>
-            <p class="case-text case-placeholder">[Ask Alex for real metric / result]</p>
-          </div>
-          <button class="btn-view-dash" data-modal="modal-pnl">Read Case Study &#x2192;</button>
+          <p class="card-summary">Revenue and PnL reporting used by business and executive teams to track how the trading business performs.</p>
+          <dl class="case-rows">
+            <div class="case-row">
+              <dt>Problem</dt>
+              <dd>Different teams calculated revenue differently, so reports did not match and nobody fully trusted the numbers.</dd>
+            </div>
+            <div class="case-row">
+              <dt>What I built</dt>
+              <dd>One agreed calculation logic, SQL pipelines in Databricks, and Tableau dashboards delivered automatically every day.</dd>
+            </div>
+          </dl>
+          <p class="case-result"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>One trusted source of revenue and PnL numbers for the whole business.</p>
+          <p class="card-stack">SQL &middot; Databricks &middot; Tableau &middot; Python</p>
+          <button class="btn-demo" data-modal="modal-pnl">Open interactive demo<span class="arr">&#x2192;</span></button>
         </article>
 
-        <!-- Demo: Genie AI -->
+        <!-- DEMO 4: Genie AI -->
         <article class="card">
           <div class="card-top">
-            <span class="card-icon">&#x1F916;</span>
-            <a href="https://github.com/DedMarooz" target="_blank" class="card-link">GitHub &#x2192;</a>
+            <span class="card-tile">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </span>
+            <span class="card-flag card-flag-alt">eToro &middot; AI</span>
           </div>
-          <h3 class="card-title">Genie AI — Business Intelligence Assistant</h3>
-          <div class="case-block">
-            <span class="case-label">Business Problem</span>
-            <p class="case-text">Management needed instant answers from trading data without involving the analyst team for every ad hoc question.</p>
-          </div>
-          <div class="case-block">
-            <span class="case-label">My Role</span>
-            <p class="case-text">Trained Databricks Genie on internal trading data — explaining table structures, KPI calculation rules, fee schedules, and business context.</p>
-          </div>
-          <div class="tags">
-            <span class="tag">Databricks</span>
-            <span class="tag">Azure AI</span>
-            <span class="tag">SQL</span>
-            <span class="tag">NLP</span>
-          </div>
-          <div class="case-block case-impact">
-            <span class="case-label">Result</span>
-            <p class="case-text">Management could ask natural language questions and get instant data answers, without involving the analyst team.</p>
-          </div>
-          <button class="btn-view-dash" data-modal="modal-ai">View Demo &#x2192;</button>
+          <h3 class="card-title">Genie — AI Analyst for Management</h3>
+          <p class="card-summary">An AI assistant that lets managers ask questions about trading data in plain English and get instant answers.</p>
+          <dl class="case-rows">
+            <div class="case-row">
+              <dt>Problem</dt>
+              <dd>Every small data question from management had to go through an analyst, which took time on both sides.</dd>
+            </div>
+            <div class="case-row">
+              <dt>What I built</dt>
+              <dd>Trained Databricks Genie on our trading data — table structures, fee rules, KPI definitions, and business logic.</dd>
+            </div>
+          </dl>
+          <p class="case-result"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Managers got answers in seconds, without waiting for an analyst.</p>
+          <p class="card-stack">Databricks Genie &middot; Azure &middot; SQL</p>
+          <button class="btn-demo" data-modal="modal-ai">Try the AI demo<span class="arr">&#x2192;</span></button>
         </article>
 
-        <!-- Demo: Market Open Briefing -->
+        <!-- DEMO 5: Market Open Briefing -->
         <article class="card">
           <div class="card-top">
-            <span class="card-icon">&#x1F4CA;</span>
-            <a href="https://github.com/DedMarooz" target="_blank" class="card-link">GitHub &#x2192;</a>
+            <span class="card-tile">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a5 5 0 0 0-10 0"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/><polyline points="8 6 12 2 16 6"/></svg>
+            </span>
+            <span class="card-flag card-flag-alt">Public data</span>
           </div>
-          <h3 class="card-title">Market Open Briefing Dashboard</h3>
-          <div class="case-block">
-            <span class="case-label">Business Problem</span>
-            <p class="case-text">Trading operations needed daily pre-market intelligence — futures positioning, movers, and sector rotation — before US market open.</p>
-          </div>
-          <div class="case-block">
-            <span class="case-label">My Role</span>
-            <p class="case-text">Built a daily dashboard using public APIs, directly based on the Premarket dashboard I owned at eToro.</p>
-          </div>
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">Tableau</span>
-            <span class="tag">Yahoo Finance API</span>
-            <span class="tag">FRED API</span>
-          </div>
-          <div class="case-block case-impact">
-            <span class="case-label">Approach</span>
-            <p class="case-text">Aggregated S&amp;P 500 futures vs fair value, pre-market movers, sector data, and options exposure into a single daily view.</p>
-          </div>
-          <button class="btn-view-dash" data-modal="modal-market">View Dashboard &#x2192;</button>
+          <h3 class="card-title">Market Open Briefing</h3>
+          <p class="card-summary">A morning dashboard that shows what is about to happen when the US market opens — futures, movers, and sector rotation.</p>
+          <dl class="case-rows">
+            <div class="case-row">
+              <dt>Problem</dt>
+              <dd>Trading teams need a fast picture of the market before the open, not five different browser tabs.</dd>
+            </div>
+            <div class="case-row">
+              <dt>What I built</dt>
+              <dd>A daily dashboard from free public APIs — modeled on the pre-market dashboard I owned at eToro.</dd>
+            </div>
+          </dl>
+          <p class="case-result"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>One screen with everything that matters before 9:30am.</p>
+          <p class="card-stack">Python &middot; Yahoo Finance API &middot; FRED API</p>
+          <button class="btn-demo" data-modal="modal-market">Open interactive demo<span class="arr">&#x2192;</span></button>
         </article>
 
-        <!-- Demo: Finance & Trading Reconciliation -->
+        <!-- DEMO 6: Reconciliation -->
         <article class="card">
           <div class="card-top">
-            <span class="card-icon">&#x2696;&#xFE0F;</span>
-            <a href="https://github.com/DedMarooz" target="_blank" class="card-link">GitHub &#x2192;</a>
+            <span class="card-tile">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </span>
+            <span class="card-flag card-flag-alt">Demo</span>
           </div>
-          <h3 class="card-title">Finance &amp; Trading Data Reconciliation</h3>
-          <div class="case-block">
-            <span class="case-label">Business Problem</span>
-            <p class="case-text">Finance and Trading were reporting different revenue numbers for the same period, creating confusion and distrust in the data.</p>
-          </div>
-          <div class="case-block">
-            <span class="case-label">My Role</span>
-            <p class="case-text">Investigated both databases, traced root causes to settlement timing, fee classification, and FX rate differences, then built a unified pipeline.</p>
-          </div>
-          <div class="tags">
-            <span class="tag">SQL</span>
-            <span class="tag">Python</span>
-            <span class="tag">Tableau</span>
-            <span class="tag">Data Pipeline</span>
-          </div>
-          <div class="case-block case-impact">
-            <span class="case-label">Result</span>
-            <p class="case-text">Delivered a Tableau dashboard showing both figures side by side so the gap was instantly visible and traceable to its source.</p>
-          </div>
-          <button class="btn-view-dash" data-modal="modal-trader">View Dashboard &#x2192;</button>
+          <h3 class="card-title">Finance vs Trading — Data Reconciliation</h3>
+          <p class="card-summary">A consistency check that finds why two departments report different numbers for the same thing.</p>
+          <dl class="case-rows">
+            <div class="case-row">
+              <dt>Problem</dt>
+              <dd>Finance and Trading reported different fee totals for the same period. Nobody knew which number was right.</dd>
+            </div>
+            <div class="case-row">
+              <dt>What I built</dt>
+              <dd>A side-by-side comparison pipeline that traced the gap to its root cause — a stock split handled differently in one system.</dd>
+            </div>
+          </dl>
+          <p class="case-result"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>The gap was found, explained, and fixed — trust in the data restored.</p>
+          <p class="card-stack">SQL &middot; Python &middot; Tableau</p>
+          <button class="btn-demo" data-modal="modal-trader">Open interactive demo<span class="arr">&#x2192;</span></button>
         </article>
 
-        <!-- Demo: Commodity Price Tracker -->
+        <!-- DEMO 7: Commodity Tracker -->
         <article class="card">
           <div class="card-top">
-            <span class="card-icon">&#x26A1;</span>
-            <a href="https://github.com/DedMarooz" target="_blank" class="card-link">GitHub &#x2192;</a>
+            <span class="card-tile">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </span>
+            <span class="card-flag card-flag-alt">Public data</span>
           </div>
-          <h3 class="card-title">Commodity Price Tracker &amp; Report Bot</h3>
-          <div class="case-block">
-            <span class="case-label">Business Problem</span>
-            <p class="case-text">Commodity traders needed automated, scheduled price tracking and reporting without manual effort each day.</p>
-          </div>
-          <div class="case-block">
-            <span class="case-label">My Role</span>
-            <p class="case-text">Built a Python pipeline that runs on a schedule, pulls prices from public APIs, and auto-generates a clean HTML report — based on commission automation I built at eToro.</p>
-          </div>
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">EIA API</span>
-            <span class="tag">Automation</span>
-            <span class="tag">Data Pipeline</span>
-          </div>
-          <div class="case-block case-impact">
-            <span class="case-label">Approach</span>
-            <p class="case-text">Scheduled pull of NatGas and Oil prices, rolling averages, volatility metrics, and automated HTML report generation.</p>
-          </div>
-          <button class="btn-view-dash" data-modal="modal-commodity">View Dashboard &#x2192;</button>
+          <h3 class="card-title">Commodity Tracker &amp; Report Bot</h3>
+          <p class="card-summary">A scheduled Python pipeline that tracks Natural Gas and Oil prices and writes its own report — no human needed.</p>
+          <dl class="case-rows">
+            <div class="case-row">
+              <dt>Problem</dt>
+              <dd>Recurring price reports take analyst time every single day, and the work is always the same.</dd>
+            </div>
+            <div class="case-row">
+              <dt>What I built</dt>
+              <dd>An automated pipeline that pulls prices, calculates rolling metrics, and generates a clean report on schedule — based on commission automation I built at eToro.</dd>
+            </div>
+          </dl>
+          <p class="case-result"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>A daily report that builds itself.</p>
+          <p class="card-stack">Python &middot; EIA API &middot; Automation</p>
+          <button class="btn-demo" data-modal="modal-commodity">Open interactive demo<span class="arr">&#x2192;</span></button>
         </article>
 
       </div>
@@ -264,70 +260,82 @@
   </section>
 
   <!-- EXPERIENCE -->
-  <section class="section experience" id="experience">
+  <section class="section section-alt" id="experience">
     <div class="container">
-      <h2 class="section-title">Professional Experience</h2>
+      <p class="section-eyebrow">02 &mdash; Background</p>
+      <h2 class="section-title">Experience</h2>
+
       <div class="timeline">
 
         <div class="timeline-item">
-          <div class="timeline-date">Oct 2023 – Oct 2025</div>
+          <div class="timeline-date">Oct 2023 &ndash; Oct 2025</div>
           <div class="timeline-content">
             <div class="timeline-header">
               <h3 class="timeline-role">Data Analyst</h3>
               <span class="timeline-company">eToro</span>
             </div>
             <ul class="timeline-list">
-              <li>Built SQL-based analytical workflows for trading operations and financial market monitoring</li>
-              <li>Created Tableau dashboards on Databricks used by business and operational stakeholders to track KPIs and revenue</li>
-              <li>Built monitoring frameworks for pre-market order behavior, hedge execution failures, and PnL/revenue tracking</li>
-              <li>Developed an AI-powered Q&amp;A analytics tool on Azure Databricks for instant metric retrieval without analyst involvement</li>
-              <li>Automated reporting workflows using Python, reducing manual work and improving data delivery speed</li>
-              <li>Created automated monitoring alerts via Python and Google Chat API to surface operational anomalies in real time</li>
-              <li>Partnered with trading, operations, finance, and risk teams to define metrics and improve data visibility</li>
-              <li>Worked with trading execution, pricing, revenue, PnL, and risk-related data at scale</li>
+              <li>Built Tableau dashboards on Databricks, used daily for KPI tracking and operational decisions</li>
+              <li>Developed an AI Q&amp;A tool on Databricks Genie so managers could query trading data in plain English</li>
+              <li>Created real-time anomaly alerts with Python and the Google Chat API</li>
+              <li>Automated reporting workflows, saving hours of manual work every day</li>
+              <li>Worked across four departments — trading, operations, finance, and risk</li>
             </ul>
           </div>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-date">Feb 2022 – Oct 2023</div>
+          <div class="timeline-date">Feb 2022 &ndash; Oct 2023</div>
           <div class="timeline-content">
             <div class="timeline-header">
               <h3 class="timeline-role">Trading System Operator / Analyst</h3>
               <span class="timeline-company">eToro</span>
             </div>
             <ul class="timeline-list">
-              <li>Monitored large-scale trading systems and ensured operational continuity in fast-paced market environments</li>
-              <li>Built Python-based monitoring and alerting workflows for trading operations</li>
-              <li>Analyzed operational and market data to support risk management and decision-making</li>
-              <li>Transitioned into data work by automating manual reporting and building analytical tools</li>
+              <li>Monitored live trading systems and kept operations running through fast markets</li>
+              <li>Built Python alerting and reporting automations for the trading floor</li>
+              <li>Analyzed market and operational data to support risk decisions</li>
+              <li>Grew from this role into the data analyst position</li>
             </ul>
           </div>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-date">2018 – 2022</div>
+          <div class="timeline-date">2020 &ndash; 2023</div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3 class="timeline-role">B.A. Economics &amp; Management</h3>
+              <span class="timeline-company">Ruppin Academic Center</span>
+            </div>
+            <ul class="timeline-list">
+              <li>Information Systems major &middot; GPA 87.5 &middot; IMPACT! Scholarship</li>
+              <li>Final project: Python Bitcoin price predictor using Twitter data — 68% accuracy</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2018 &ndash; 2022</div>
           <div class="timeline-content">
             <div class="timeline-header">
               <h3 class="timeline-role">Air Marshal</h3>
               <span class="timeline-company">El Al Airlines</span>
             </div>
             <ul class="timeline-list">
-              <li>Operated in high-stakes, confidential environments requiring precision and rapid judgment under pressure</li>
+              <li>High-stakes, confidential work demanding precision and fast judgment under pressure</li>
             </ul>
           </div>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-date">2020 – 2023</div>
+          <div class="timeline-date">2014 &ndash; 2017</div>
           <div class="timeline-content">
             <div class="timeline-header">
-              <h3 class="timeline-role">B.A. Economics &amp; Management</h3>
-              <span class="timeline-company">Ruppin Academic Center &middot; Information Systems Major</span>
+              <h3 class="timeline-role">Staff Sergeant, Special Forces</h3>
+              <span class="timeline-company">Maglan Unit, IDF</span>
             </div>
             <ul class="timeline-list">
-              <li>GPA: 87.5 &middot; IMPACT! Scholarship recipient</li>
-              <li>Final Project: Python Bitcoin price predictor using Twitter sentiment data — 68% accuracy</li>
+              <li>Sniper and team commander &middot; lone soldier &middot; active reserve duty</li>
             </ul>
           </div>
         </div>
@@ -337,119 +345,103 @@
   </section>
 
   <!-- SKILLS -->
-  <section class="section skills" id="skills">
+  <section class="section" id="skills">
     <div class="container">
+      <p class="section-eyebrow">03 &mdash; Toolbox</p>
       <h2 class="section-title">Skills &amp; Tools</h2>
+
       <div class="skills-grid">
-
         <div class="skill-group">
-          <h3 class="skill-group-title">Languages</h3>
+          <h3 class="skill-group-title">Core</h3>
           <div class="skill-pills">
-            <span>SQL</span><span>Python</span><span>PySpark</span><span>C#</span>
+            <span>SQL</span><span>Python</span><span>PySpark</span><span>Pandas</span>
           </div>
         </div>
-
         <div class="skill-group">
-          <h3 class="skill-group-title">Visualisation &amp; BI</h3>
+          <h3 class="skill-group-title">BI &amp; Visualization</h3>
           <div class="skill-pills">
-            <span>Tableau</span><span>Plotly</span><span>Streamlit</span><span>Dash</span>
+            <span>Tableau</span><span>Plotly</span><span>Streamlit</span>
           </div>
         </div>
-
         <div class="skill-group">
-          <h3 class="skill-group-title">Platforms</h3>
+          <h3 class="skill-group-title">Data Platforms</h3>
           <div class="skill-pills">
-            <span>Databricks</span><span>Apache Spark</span><span>Pandas</span><span>NumPy</span>
+            <span>Databricks</span><span>Apache Spark</span><span>Azure</span>
           </div>
         </div>
-
         <div class="skill-group">
-          <h3 class="skill-group-title">AI &amp; ML</h3>
+          <h3 class="skill-group-title">AI Tools</h3>
           <div class="skill-pills">
-            <span>Claude API</span><span>Databricks AI</span><span>LLM Prompting</span><span>NLP</span>
+            <span>Databricks Genie</span><span>Claude API</span><span>LLM Prompting</span>
           </div>
         </div>
-
         <div class="skill-group">
-          <h3 class="skill-group-title">Domain Knowledge</h3>
+          <h3 class="skill-group-title">Market Knowledge</h3>
           <div class="skill-pills">
-            <span>Stock Markets</span><span>ETFs</span><span>Crypto</span><span>Commodities</span><span>Risk &amp; Hedging</span>
+            <span>Stocks</span><span>ETFs</span><span>Crypto</span><span>Commodities</span><span>Risk &amp; Hedging</span>
           </div>
         </div>
-
-        <div class="skill-group">
-          <h3 class="skill-group-title">Engineering</h3>
-          <div class="skill-pills">
-            <span>Data Pipelines</span><span>Automation</span><span>Web Scraping</span><span>Git</span>
-          </div>
-        </div>
-
         <div class="skill-group">
           <h3 class="skill-group-title">Spoken Languages</h3>
           <div class="skill-pills">
-            <span>Hebrew (Native)</span><span>Russian (Native)</span><span>English (Professional)</span>
+            <span>Hebrew — native</span><span>Russian — native</span><span>English — professional</span>
           </div>
         </div>
-
       </div>
+      <p class="skills-note">Also: Git, data pipelines, web scraping, workflow automation.</p>
     </div>
   </section>
 
-  <!-- HOW I THINK ABOUT DATA -->
-  <section class="section thinking" id="thinking">
+  <!-- HOW I WORK -->
+  <section class="section section-alt" id="thinking">
     <div class="container">
-      <h2 class="section-title">How I Think About Data</h2>
-      <p class="section-sub">I approach analytics work as a business problem first, not a dashboard request.</p>
+      <p class="section-eyebrow">04 &mdash; Method</p>
+      <h2 class="section-title">How I Work With Data</h2>
+      <p class="section-sub">A dashboard is never the goal. A decision is.</p>
+
       <div class="thinking-steps">
-
         <div class="thinking-step">
-          <div class="step-num">01</div>
+          <span class="step-num">01</span>
           <div class="step-body">
-            <h3 class="step-title">Understand the business question</h3>
-            <p class="step-desc">Before writing a single query, I align with stakeholders on what decision this data needs to support.</p>
+            <h3 class="step-title">Start with the business question</h3>
+            <p class="step-desc">What decision does this data need to support? I ask before I write a single query.</p>
           </div>
         </div>
-
         <div class="thinking-step">
-          <div class="step-num">02</div>
+          <span class="step-num">02</span>
           <div class="step-body">
-            <h3 class="step-title">Define the KPI or risk clearly</h3>
-            <p class="step-desc">I make sure the metric we are measuring is well-defined and agreed on. Ambiguous KPIs lead to misleading answers.</p>
+            <h3 class="step-title">Define the metric clearly</h3>
+            <p class="step-desc">A vague KPI gives a misleading answer. I make sure everyone agrees on what we are measuring.</p>
           </div>
         </div>
-
         <div class="thinking-step">
-          <div class="step-num">03</div>
+          <span class="step-num">03</span>
           <div class="step-body">
-            <h3 class="step-title">Validate the data source and logic</h3>
-            <p class="step-desc">I check data quality, understand the grain, and verify the logic before building anything on top of it.</p>
+            <h3 class="step-title">Check the data first</h3>
+            <p class="step-desc">I validate the source, the logic, and the edge cases before building anything on top of it.</p>
           </div>
         </div>
-
         <div class="thinking-step">
-          <div class="step-num">04</div>
+          <span class="step-num">04</span>
           <div class="step-body">
-            <h3 class="step-title">Build the analysis or monitoring layer</h3>
-            <p class="step-desc">I write clean SQL or Python, build the pipeline, and make the output readable to both technical and non-technical stakeholders.</p>
+            <h3 class="step-title">Build it clean</h3>
+            <p class="step-desc">Readable SQL and Python, and outputs that both engineers and managers understand.</p>
           </div>
         </div>
-
         <div class="thinking-step">
-          <div class="step-num">05</div>
+          <span class="step-num">05</span>
           <div class="step-body">
-            <h3 class="step-title">Translate findings into a clear recommendation</h3>
-            <p class="step-desc">The goal is not a chart — it is a decision. I always frame findings as actionable next steps.</p>
+            <h3 class="step-title">End with a recommendation</h3>
+            <p class="step-desc">I always say what I think the data means and what I would do next — not just show a chart.</p>
           </div>
         </div>
-
         <div class="thinking-step">
-          <div class="step-num">06</div>
+          <span class="step-num">06</span>
           <div class="step-body">
-            <h3 class="step-title">Automate or dashboard when it creates recurring value</h3>
-            <p class="step-desc">If the same analysis is needed regularly, I build it once properly — as a scheduled report, a dashboard, or an alert.</p>
+            <h3 class="step-title">Automate what repeats</h3>
+            <p class="step-desc">If a question comes back every week, I turn it into a dashboard, a report, or an alert.</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -457,241 +449,272 @@
   <!-- CONTACT -->
   <section class="section contact" id="contact">
     <div class="container contact-inner">
-      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-eyebrow center">05 &mdash; Contact</p>
+      <h2 class="contact-title">Let's talk.</h2>
       <p class="contact-desc">
-        Interested in data, analytics, or automation roles? Let's connect.
+        I'm looking for my next data role — analytics, BI, or AI-focused.
+        If you think I could help your team, I would love to hear from you.
       </p>
+      <a href="mailto:zaleexander@gmail.com" class="btn btn-accent btn-lg">zaleexander@gmail.com</a>
       <div class="contact-links">
-        <a href="mailto:zaleexander@gmail.com" class="contact-item">
-          <span class="contact-label">Email</span>
-          <span class="contact-value">zaleexander@gmail.com</span>
-        </a>
-        <a href="https://github.com/DedMarooz" target="_blank" class="contact-item">
-          <span class="contact-label">GitHub</span>
-          <span class="contact-value">github.com/DedMarooz</span>
-        </a>
-        <a href="https://www.linkedin.com/in/alexanderzaretski/" target="_blank" class="contact-item">
-          <span class="contact-label">LinkedIn</span>
-          <span class="contact-value">linkedin.com/in/alexanderzaretski</span>
-        </a>
-        <a href="assets/resume.pdf" target="_blank" class="contact-item contact-resume">
-          <span class="contact-label">Resume</span>
-          <span class="contact-value">Download PDF &#x2192;</span>
-        </a>
+        <a href="https://github.com/DedMarooz" target="_blank" rel="noopener">GitHub</a>
+        <span class="sep">&middot;</span>
+        <a href="https://www.linkedin.com/in/alexanderzaretski/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="sep">&middot;</span>
+        <a href="assets/resume.pdf" target="_blank">Resume (PDF)</a>
       </div>
     </div>
   </section>
 
+  </main>
+
   <!-- FOOTER -->
   <footer class="footer">
-    <p>Designed &amp; built by Alex Zaretski &nbsp;&middot;&nbsp;
-      <a href="https://github.com/DedMarooz/DedMarooz.github.io" target="_blank">View Source</a>
+    <p>Designed &amp; built by Alexander Zaretski &nbsp;&middot;&nbsp;
+      <a href="https://github.com/DedMarooz/DedMarooz.github.io" target="_blank" rel="noopener">View source</a>
     </p>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <!-- ════════════════════════ MODALS ════════════════════════ -->
 
-  <!-- ── MODAL: Pre-Market SLTP Monitoring ────────────────────────────────────── -->
+  <!-- MODAL: Pre-Market SLTP Monitoring -->
   <div class="db-modal" id="modal-sltp">
     <div class="db-backdrop" data-close="modal-sltp"></div>
-    <div class="db-panel db-panel-case">
+    <div class="db-panel">
       <div class="db-header">
         <div>
-          <span class="db-badge">Flagship Project &middot; eToro &middot; Trading Operations</span>
-          <h2 class="db-title">Pre-Market SLTP Monitoring</h2>
-          <p class="db-sub">Stop-loss / take-profit order monitoring before market open</p>
+          <span class="db-badge">eToro &middot; Trading Operations</span>
+          <h2 class="db-title">Pre-Market Order Monitoring</h2>
+          <p class="db-sub">Stop-loss / take-profit screening before the US market open</p>
+          <p class="db-note">Interactive demo with simulated data — the real version ran on confidential eToro data.</p>
         </div>
         <button class="db-close" data-close="modal-sltp">&#x2715;</button>
       </div>
-      <div class="case-study">
-        <div class="cs-section">
-          <h3 class="cs-heading">Business Context</h3>
-          <p class="cs-text">Trading operations at eToro required monitoring of pre-market order activity to catch abnormal SLTP behavior before market open, when risks are harder to manage.</p>
+      <div class="db-kpis">
+        <div class="db-kpi"><div class="kpi-num">12,400</div><div class="kpi-lab">Orders scanned</div></div>
+        <div class="db-kpi"><div class="kpi-num warn">38</div><div class="kpi-lab">Orders flagged</div></div>
+        <div class="db-kpi"><div class="kpi-num">6</div><div class="kpi-lab">Alerts sent to ops</div></div>
+        <div class="db-kpi"><div class="kpi-num pos">9:12am</div><div class="kpi-lab">Last alert before open</div></div>
+      </div>
+      <div class="db-grid">
+        <div class="db-box span-2">
+          <p class="db-box-title">Pre-market order flow &amp; flagged orders &middot; 4:00am &ndash; 9:30am EST</p>
+          <canvas id="ch-sltp-flow"></canvas>
         </div>
-        <div class="cs-section">
-          <h3 class="cs-heading">Problem</h3>
-          <p class="cs-text">Stop-loss and take-profit orders placed during pre-market hours could trigger unexpected market exposure at open. There was no systematic monitoring layer to detect abnormal patterns early.</p>
+        <div class="db-box">
+          <p class="db-box-title">Flagged orders by instrument</p>
+          <canvas id="ch-sltp-instr"></canvas>
         </div>
-        <div class="cs-section">
-          <h3 class="cs-heading">My Role</h3>
-          <p class="cs-text">I owned the end-to-end analytical work: defining what "abnormal" meant for SLTP behavior, writing the detection logic in SQL, building the monitoring pipeline, and delivering the output to operational stakeholders.</p>
+        <div class="db-box">
+          <p class="db-box-title">Live alert feed</p>
+          <div class="alert-feed">
+            <div class="alert-item high">
+              <span class="alert-time">9:12</span>
+              <span class="alert-text"><strong>TSLA</strong> — SL order 40&times; larger than client average</span>
+            </div>
+            <div class="alert-item high">
+              <span class="alert-time">8:47</span>
+              <span class="alert-text"><strong>NVDA</strong> — cluster of TP orders at same price level</span>
+            </div>
+            <div class="alert-item med">
+              <span class="alert-time">8:30</span>
+              <span class="alert-text"><strong>BTC</strong> — SL placed inside expected gap range</span>
+            </div>
+            <div class="alert-item med">
+              <span class="alert-time">7:55</span>
+              <span class="alert-text"><strong>AAPL</strong> — order far outside normal price band</span>
+            </div>
+            <div class="alert-item low">
+              <span class="alert-time">6:40</span>
+              <span class="alert-text"><strong>SPX500</strong> — elevated order volume vs 30-day baseline</span>
+            </div>
+            <div class="alert-item ok">
+              <span class="alert-time">4:00</span>
+              <span class="alert-text">Scan started — 30-day baseline loaded</span>
+            </div>
+          </div>
         </div>
-        <div class="cs-section">
-          <h3 class="cs-heading">Data Sources</h3>
-          <p class="cs-text">Internal trading systems — order and position data. (Details not shareable due to confidentiality.)</p>
+      </div>
+      <div class="db-case">
+        <div class="db-case-col">
+          <h4>Problem</h4>
+          <p>Unusual stop-loss and take-profit orders placed overnight could create losses at market open. Nobody could see them in time.</p>
         </div>
-        <div class="cs-section">
-          <h3 class="cs-heading">Methodology</h3>
-          <ul class="cs-list">
-            <li>Defined thresholds for abnormal SLTP patterns based on historical data</li>
-            <li>Wrote SQL queries in Databricks to detect deviations from expected behavior</li>
-            <li>Built a daily monitoring pipeline running before market open</li>
-            <li>Created dashboards and alerts so operations could act before open</li>
-          </ul>
+        <div class="db-case-col">
+          <h4>What I built</h4>
+          <p>SQL detection logic in Databricks scanning every pre-market order against a 30-day baseline, with automated alerts to the operations team.</p>
         </div>
-        <div class="cs-section cs-ph">
-          <h3 class="cs-heading">SQL / Code Sample</h3>
-          <p class="cs-text">[Add anonymized SQL sample — Alex to provide]</p>
-        </div>
-        <div class="cs-section cs-ph">
-          <h3 class="cs-heading">Dashboard / Output</h3>
-          <p class="cs-text">[Add dashboard screenshot — Alex to provide]</p>
-        </div>
-        <div class="cs-section cs-ph">
-          <h3 class="cs-heading">Business Impact</h3>
-          <p class="cs-text">[Ask Alex for real metric / result — e.g. incidents caught, time saved, risk reduced]</p>
-        </div>
-        <div class="cs-section">
-          <h3 class="cs-heading">What I Would Improve Next</h3>
-          <p class="cs-text">Real-time alerting rather than batch before open, more granular segmentation by instrument type, and automated escalation routing.</p>
+        <div class="db-case-col">
+          <h4>Result</h4>
+          <p>The team reviewed flagged orders before the open — risk was handled before it became a loss, not after.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ── MODAL: Hedge Execution Fail Ratio ────────────────────────────────────── -->
+  <!-- MODAL: Hedge Execution Fail Monitor -->
   <div class="db-modal" id="modal-hedge">
     <div class="db-backdrop" data-close="modal-hedge"></div>
-    <div class="db-panel db-panel-case">
+    <div class="db-panel">
       <div class="db-header">
         <div>
-          <span class="db-badge">Flagship Project &middot; eToro &middot; Risk &amp; Execution</span>
-          <h2 class="db-title">Hedge Execution Fail Ratio</h2>
-          <p class="db-sub">Root-cause analysis and monitoring framework for hedge execution failures</p>
+          <span class="db-badge">eToro &middot; Risk &amp; Execution</span>
+          <h2 class="db-title">Hedge Execution Fail Monitor</h2>
+          <p class="db-sub">Daily fail-ratio tracking with root-cause breakdown</p>
+          <p class="db-note">Interactive demo with simulated data — the real version ran on confidential eToro data.</p>
         </div>
         <button class="db-close" data-close="modal-hedge">&#x2715;</button>
       </div>
-      <div class="case-study">
-        <div class="cs-section">
-          <h3 class="cs-heading">Business Context</h3>
-          <p class="cs-text">Hedge execution is a core operational process in a CFD trading environment. Failures create market exposure and financial risk for the business.</p>
+      <div class="db-kpis">
+        <div class="db-kpi"><div class="kpi-num pos">98.9%</div><div class="kpi-lab">Execution success rate</div></div>
+        <div class="db-kpi"><div class="kpi-num warn">1.1%</div><div class="kpi-lab">Fail ratio this week</div></div>
+        <div class="db-kpi"><div class="kpi-num neg">Day 18</div><div class="kpi-lab">Spike caught &amp; resolved</div></div>
+        <div class="db-kpi"><div class="kpi-num">Crypto</div><div class="kpi-lab">Top failing group</div></div>
+      </div>
+      <div class="db-grid">
+        <div class="db-box span-2">
+          <p class="db-box-title">Daily fail ratio &middot; last 30 days &middot; alert threshold at 1.5%</p>
+          <canvas id="ch-hedge-trend"></canvas>
         </div>
-        <div class="cs-section">
-          <h3 class="cs-heading">Problem</h3>
-          <p class="cs-text">Execution failures were occurring without a structured framework to track their frequency, identify root causes, or compare failure rates across instruments, venues, or time periods.</p>
+        <div class="db-box">
+          <p class="db-box-title">Fail ratio by asset group</p>
+          <canvas id="ch-hedge-seg"></canvas>
         </div>
-        <div class="cs-section">
-          <h3 class="cs-heading">My Role</h3>
-          <p class="cs-text">I designed and built the monitoring and analysis framework — defining the fail ratio metric, writing the SQL logic, building the reporting layer, and presenting findings to operational and risk stakeholders.</p>
+        <div class="db-box">
+          <p class="db-box-title">Root causes &middot; failed executions</p>
+          <div class="cause-list">
+            <div class="cause-row">
+              <div class="cause-head"><span>Venue rejection — low liquidity</span><span>41%</span></div>
+              <div class="cause-bar"><i style="width:41%"></i></div>
+            </div>
+            <div class="cause-row">
+              <div class="cause-head"><span>Price moved past tolerance</span><span>27%</span></div>
+              <div class="cause-bar"><i style="width:27%"></i></div>
+            </div>
+            <div class="cause-row">
+              <div class="cause-head"><span>Timeout — venue latency</span><span>18%</span></div>
+              <div class="cause-bar"><i style="width:18%"></i></div>
+            </div>
+            <div class="cause-row">
+              <div class="cause-head"><span>Instrument halted / paused</span><span>9%</span></div>
+              <div class="cause-bar"><i style="width:9%"></i></div>
+            </div>
+            <div class="cause-row">
+              <div class="cause-head"><span>Other</span><span>5%</span></div>
+              <div class="cause-bar"><i style="width:5%"></i></div>
+            </div>
+          </div>
         </div>
-        <div class="cs-section">
-          <h3 class="cs-heading">Data Sources</h3>
-          <p class="cs-text">Internal execution and order management data. (Details not shareable due to confidentiality.)</p>
+      </div>
+      <div class="db-case">
+        <div class="db-case-col">
+          <h4>Problem</h4>
+          <p>Failed hedge executions left the company exposed to market risk, and there was no structured way to measure how often they happened or why.</p>
         </div>
-        <div class="cs-section">
-          <h3 class="cs-heading">Methodology</h3>
-          <ul class="cs-list">
-            <li>Defined the fail ratio metric: failed executions / total execution attempts, per dimension</li>
-            <li>Segmented by instrument, time window, and execution venue</li>
-            <li>Built SQL logic in Databricks to calculate and trend the metric over time</li>
-            <li>Created dashboards for operations and risk teams to monitor daily</li>
-            <li>Identified key root-cause patterns driving elevated failure rates</li>
-          </ul>
+        <div class="db-case-col">
+          <h4>What I built</h4>
+          <p>The fail-ratio metric itself, the SQL pipeline behind it, and a dashboard breaking failures down by instrument, venue, and time window.</p>
         </div>
-        <div class="cs-section cs-ph">
-          <h3 class="cs-heading">SQL / Code Sample</h3>
-          <p class="cs-text">[Add anonymized SQL sample — Alex to provide]</p>
-        </div>
-        <div class="cs-section cs-ph">
-          <h3 class="cs-heading">Dashboard / Output</h3>
-          <p class="cs-text">[Add dashboard screenshot — Alex to provide]</p>
-        </div>
-        <div class="cs-section cs-ph">
-          <h3 class="cs-heading">Business Impact</h3>
-          <p class="cs-text">[Ask Alex for real metric / result — e.g. reduction in fail rate, risk visibility improvement, decisions supported]</p>
-        </div>
-        <div class="cs-section">
-          <h3 class="cs-heading">What I Would Improve Next</h3>
-          <p class="cs-text">Automated anomaly detection on the fail ratio, comparison against benchmarks, and integration with an alerting system for threshold breaches.</p>
+        <div class="db-case-col">
+          <h4>Result</h4>
+          <p>Operations and risk teams got a daily, measurable view of execution health — and could act on spikes the same day.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ── MODAL: Trading Revenue / PnL Analytics ───────────────────────────────── -->
+  <!-- MODAL: Trading Revenue & PnL -->
   <div class="db-modal" id="modal-pnl">
     <div class="db-backdrop" data-close="modal-pnl"></div>
-    <div class="db-panel db-panel-case">
+    <div class="db-panel">
       <div class="db-header">
         <div>
-          <span class="db-badge">Flagship Project &middot; eToro &middot; Revenue &amp; PnL</span>
+          <span class="db-badge">eToro &middot; Revenue &amp; PnL</span>
           <h2 class="db-title">Trading Revenue &amp; PnL Analytics</h2>
-          <p class="db-sub">Revenue tracking, PnL logic, and executive reporting</p>
+          <p class="db-sub">Daily revenue tracking for business and executive teams</p>
+          <p class="db-note">Interactive demo with simulated data — the real version ran on confidential eToro data.</p>
         </div>
         <button class="db-close" data-close="modal-pnl">&#x2715;</button>
       </div>
-      <div class="case-study">
-        <div class="cs-section">
-          <h3 class="cs-heading">Business Context</h3>
-          <p class="cs-text">In a trading business, revenue and PnL monitoring is central to understanding business performance. Accurate and consistent reporting is critical for business and executive decision-making.</p>
+      <div class="db-kpis">
+        <div class="db-kpi"><div class="kpi-num pos">$1.84M</div><div class="kpi-lab">Revenue &middot; 14 days</div></div>
+        <div class="db-kpi"><div class="kpi-num pos">+6.2%</div><div class="kpi-lab">vs prior period</div></div>
+        <div class="db-kpi"><div class="kpi-num">Stocks</div><div class="kpi-lab">Top asset class</div></div>
+        <div class="db-kpi"><div class="kpi-num">7:00am</div><div class="kpi-lab">Auto-refresh daily</div></div>
+      </div>
+      <div class="db-grid">
+        <div class="db-box span-2">
+          <p class="db-box-title">Daily net revenue &amp; cumulative &middot; last 14 days</p>
+          <canvas id="ch-pnl-daily"></canvas>
         </div>
-        <div class="cs-section">
-          <h3 class="cs-heading">Problem</h3>
-          <p class="cs-text">Revenue and PnL logic lacked a clear, consistent monitoring and reporting layer — making it difficult to track performance across products, instruments, or time periods reliably.</p>
+        <div class="db-box">
+          <p class="db-box-title">Revenue by asset class</p>
+          <canvas id="ch-pnl-class"></canvas>
         </div>
-        <div class="cs-section">
-          <h3 class="cs-heading">My Role</h3>
-          <p class="cs-text">I built the analytical logic for PnL and revenue calculation, designed the reporting pipeline, and created dashboards used by business and executive stakeholders.</p>
+        <div class="db-box">
+          <p class="db-box-title">Top instruments by revenue</p>
+          <div style="flex:1;overflow-y:auto;">
+            <table class="recon-table">
+              <thead>
+                <tr><th>#</th><th>Instrument</th><th>Revenue</th><th>vs prior</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td class="hl">NVDA</td><td>$214K</td><td class="pos">+12%</td></tr>
+                <tr><td>2</td><td class="hl">BTC/USD</td><td>$187K</td><td class="pos">+9%</td></tr>
+                <tr><td>3</td><td class="hl">TSLA</td><td>$142K</td><td class="neg">&minus;3%</td></tr>
+                <tr><td>4</td><td class="hl">SPX500</td><td>$118K</td><td class="pos">+5%</td></tr>
+                <tr><td>5</td><td class="hl">AAPL</td><td>$96K</td><td class="pos">+2%</td></tr>
+                <tr><td>6</td><td class="hl">ETH/USD</td><td>$88K</td><td class="pos">+14%</td></tr>
+                <tr><td>7</td><td class="hl">GOLD</td><td>$71K</td><td class="neg">&minus;1%</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div class="cs-section">
-          <h3 class="cs-heading">Data Sources</h3>
-          <p class="cs-text">Internal trading, position, and fee data. (Details not shareable due to confidentiality.)</p>
+      </div>
+      <div class="db-case">
+        <div class="db-case-col">
+          <h4>Problem</h4>
+          <p>Different teams calculated revenue differently. Reports did not match, and nobody fully trusted the numbers.</p>
         </div>
-        <div class="cs-section">
-          <h3 class="cs-heading">Methodology</h3>
-          <ul class="cs-list">
-            <li>Defined clear PnL and revenue calculation logic, documented and validated with business stakeholders</li>
-            <li>Built SQL pipelines in Databricks to calculate metrics at multiple granularities (instrument, product, period)</li>
-            <li>Designed Tableau dashboards for business and executive stakeholders</li>
-            <li>Automated daily and weekly reporting delivery</li>
-          </ul>
+        <div class="db-case-col">
+          <h4>What I built</h4>
+          <p>One agreed calculation logic validated with stakeholders, SQL pipelines in Databricks at multiple granularities, and Tableau dashboards delivered automatically.</p>
         </div>
-        <div class="cs-section cs-ph">
-          <h3 class="cs-heading">SQL / Code Sample</h3>
-          <p class="cs-text">[Add anonymized SQL sample — Alex to provide]</p>
-        </div>
-        <div class="cs-section cs-ph">
-          <h3 class="cs-heading">Dashboard / Output</h3>
-          <p class="cs-text">[Add dashboard screenshot — Alex to provide]</p>
-        </div>
-        <div class="cs-section cs-ph">
-          <h3 class="cs-heading">Business Impact</h3>
-          <p class="cs-text">[Ask Alex for real metric / result — e.g. stakeholders served, reporting time saved, decisions improved]</p>
-        </div>
-        <div class="cs-section">
-          <h3 class="cs-heading">What I Would Improve Next</h3>
-          <p class="cs-text">More granular revenue attribution by product and customer segment, forecasting capabilities on top of the historical tracking, and real-time dashboards rather than daily batch refreshes.</p>
+        <div class="db-case-col">
+          <h4>Result</h4>
+          <p>One trusted source of revenue and PnL numbers — used by business and executive teams.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ── MODAL: Finance & Trading Reconciliation ───────────────────────────── -->
+  <!-- MODAL: Finance & Trading Reconciliation -->
   <div class="db-modal" id="modal-trader">
     <div class="db-backdrop" data-close="modal-trader"></div>
     <div class="db-panel">
       <div class="db-header">
         <div>
-          <span class="db-badge">Cross-Department Analytics &middot; Data Pipeline</span>
-          <h2 class="db-title">Finance vs Trading Fees &mdash; Data Consistency Check</h2>
-          <p class="db-sub">Comparing fees calculated by Finance and Trading departments for all stocks</p>
+          <span class="db-badge">Cross-department analytics</span>
+          <h2 class="db-title">Finance vs Trading — Fee Reconciliation</h2>
+          <p class="db-sub">Why do two departments report different numbers for the same fees?</p>
+          <p class="db-note">Interactive demo with sample data.</p>
         </div>
         <button class="db-close" data-close="modal-trader">&#x2715;</button>
       </div>
       <div class="db-kpis db-kpis-5">
-        <div class="db-kpi"><div class="kpi-num">5</div><div class="kpi-lab">Total Stocks</div></div>
-        <div class="db-kpi"><div class="kpi-num neg">1</div><div class="kpi-lab">Mismatched Stocks</div></div>
-        <div class="db-kpi"><div class="kpi-num pos">80%</div><div class="kpi-lab">Match Rate</div></div>
-        <div class="db-kpi"><div class="kpi-num">$500</div><div class="kpi-lab">Total Fees (Finance)</div></div>
-        <div class="db-kpi"><div class="kpi-num warn">$580</div><div class="kpi-lab">Total Fees (Trading)</div></div>
+        <div class="db-kpi"><div class="kpi-num">5</div><div class="kpi-lab">Stocks compared</div></div>
+        <div class="db-kpi"><div class="kpi-num neg">1</div><div class="kpi-lab">Mismatch found</div></div>
+        <div class="db-kpi"><div class="kpi-num pos">80%</div><div class="kpi-lab">Match rate</div></div>
+        <div class="db-kpi"><div class="kpi-num">$500</div><div class="kpi-lab">Total fees &middot; Finance</div></div>
+        <div class="db-kpi"><div class="kpi-num warn">$580</div><div class="kpi-lab">Total fees &middot; Trading</div></div>
       </div>
       <div class="db-grid">
         <div class="db-box span-2">
-          <p class="db-box-title">Fees by Stock and Department</p>
+          <p class="db-box-title">Fees by stock and department</p>
           <canvas id="ch-trader-hours"></canvas>
         </div>
         <div class="db-box">
-          <p class="db-box-title">Fee Comparison Details</p>
+          <p class="db-box-title">Comparison details</p>
           <div style="flex:1;overflow-y:auto;">
             <table class="recon-table">
               <thead>
@@ -708,7 +731,7 @@
           </div>
         </div>
         <div class="db-box">
-          <p class="db-box-title">Investigation Summary</p>
+          <p class="db-box-title">Investigation</p>
           <div class="invest-cards">
             <div class="invest-card">
               <span class="invest-icon">&#128269;</span>
@@ -720,138 +743,134 @@
             <div class="invest-card">
               <span class="invest-icon">&#128161;</span>
               <div>
-                <div class="invest-label">Root Cause</div>
-                <div class="invest-val">Trading dept used pre-split price for NVDA, resulting in inflated fees.</div>
+                <div class="invest-label">Root cause</div>
+                <div class="invest-val">Trading used the pre-split NVDA price, which doubled the calculated fees.</div>
               </div>
             </div>
             <div class="invest-card">
               <span class="invest-icon">&#10003;</span>
               <div>
-                <div class="invest-label">Action Taken</div>
-                <div class="invest-val">Price data updated to post-split values. Fees are now aligned.</div>
+                <div class="invest-label">Action taken</div>
+                <div class="invest-val">Price data updated to post-split values. Both departments now match.</div>
               </div>
             </div>
-            <div class="invest-resolved">&#10003; Data issue resolved. No further action required.</div>
+            <div class="invest-resolved">&#10003; Issue resolved — numbers aligned</div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ── MODAL: Market Briefing ────────────────────────────────────────────── -->
+  <!-- MODAL: Market Briefing -->
   <div class="db-modal" id="modal-market">
     <div class="db-backdrop" data-close="modal-market"></div>
     <div class="db-panel">
       <div class="db-header">
         <div>
-          <span class="db-badge">Interactive Demo</span>
+          <span class="db-badge">Daily automation</span>
           <h2 class="db-title">Market Open Briefing</h2>
-          <p class="db-sub">Pre-market intelligence &middot; S&amp;P 500 futures, movers &amp; sector rotation</p>
+          <p class="db-sub">S&amp;P 500 futures, pre-market movers, and sector rotation — before 9:30am</p>
+          <p class="db-note">Interactive demo with sample data based on public sources.</p>
         </div>
         <button class="db-close" data-close="modal-market">&#x2715;</button>
       </div>
       <div class="db-kpis">
-        <div class="db-kpi"><div class="kpi-num pos">5,847</div><div class="kpi-lab">S&amp;P 500 Futures</div></div>
-        <div class="db-kpi"><div class="kpi-num pos">+0.30%</div><div class="kpi-lab">vs Fair Value</div></div>
-        <div class="db-kpi"><div class="kpi-num warn">18.4</div><div class="kpi-lab">VIX (Fear Index)</div></div>
-        <div class="db-kpi"><div class="kpi-num">FOMC</div><div class="kpi-lab">Key Event Today</div></div>
+        <div class="db-kpi"><div class="kpi-num pos">5,847</div><div class="kpi-lab">S&amp;P 500 futures</div></div>
+        <div class="db-kpi"><div class="kpi-num pos">+0.30%</div><div class="kpi-lab">vs fair value</div></div>
+        <div class="db-kpi"><div class="kpi-num warn">18.4</div><div class="kpi-lab">VIX</div></div>
+        <div class="db-kpi"><div class="kpi-num">FOMC</div><div class="kpi-lab">Key event today</div></div>
       </div>
       <div class="db-grid">
         <div class="db-box span-2">
-          <p class="db-box-title">Overnight Futures vs Fair Value</p>
+          <p class="db-box-title">Overnight futures vs fair value</p>
           <canvas id="ch-market-futures"></canvas>
         </div>
         <div class="db-box">
-          <p class="db-box-title">Pre-market Top Movers</p>
+          <p class="db-box-title">Pre-market top movers</p>
           <canvas id="ch-market-movers"></canvas>
         </div>
         <div class="db-box">
-          <p class="db-box-title">Sector Performance</p>
+          <p class="db-box-title">Sector performance</p>
           <canvas id="ch-market-sectors"></canvas>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ── MODAL: Commodity Tracker ──────────────────────────────────────────── -->
+  <!-- MODAL: Commodity Tracker -->
   <div class="db-modal" id="modal-commodity">
     <div class="db-backdrop" data-close="modal-commodity"></div>
     <div class="db-panel">
       <div class="db-header">
         <div>
-          <span class="db-badge">Interactive Demo</span>
-          <h2 class="db-title">Commodity Price Tracker</h2>
-          <p class="db-sub">Natural Gas &amp; WTI Oil &middot; 30-day rolling window &middot; EIA &amp; Yahoo Finance data</p>
+          <span class="db-badge">Scheduled pipeline</span>
+          <h2 class="db-title">Commodity Tracker &amp; Report Bot</h2>
+          <p class="db-sub">Natural Gas &amp; WTI Oil &middot; 30-day rolling window &middot; auto-generated report</p>
+          <p class="db-note">Interactive demo with sample data based on public sources.</p>
         </div>
         <button class="db-close" data-close="modal-commodity">&#x2715;</button>
       </div>
       <div class="db-kpis">
-        <div class="db-kpi"><div class="kpi-num neg">$2.72</div><div class="kpi-lab">NatGas ($/MMBtu)</div></div>
-        <div class="db-kpi"><div class="kpi-num pos">$78.43</div><div class="kpi-lab">WTI Oil ($/bbl)</div></div>
-        <div class="db-kpi"><div class="kpi-num neg">&minus;4.2%</div><div class="kpi-lab">NatGas 30d Change</div></div>
-        <div class="db-kpi"><div class="kpi-num pos">+0.4%</div><div class="kpi-lab">Oil 30d Change</div></div>
+        <div class="db-kpi"><div class="kpi-num neg">$2.72</div><div class="kpi-lab">NatGas $/MMBtu</div></div>
+        <div class="db-kpi"><div class="kpi-num pos">$78.43</div><div class="kpi-lab">WTI Oil $/bbl</div></div>
+        <div class="db-kpi"><div class="kpi-num neg">&minus;4.2%</div><div class="kpi-lab">NatGas 30d change</div></div>
+        <div class="db-kpi"><div class="kpi-num pos">+0.4%</div><div class="kpi-lab">Oil 30d change</div></div>
       </div>
       <div class="db-grid">
         <div class="db-box">
-          <p class="db-box-title">Natural Gas — 30 Days ($/MMBtu)</p>
+          <p class="db-box-title">Natural Gas — 30 days ($/MMBtu)</p>
           <canvas id="ch-natgas"></canvas>
         </div>
         <div class="db-box">
-          <p class="db-box-title">WTI Oil — 30 Days ($/bbl)</p>
+          <p class="db-box-title">WTI Oil — 30 days ($/bbl)</p>
           <canvas id="ch-oil"></canvas>
         </div>
         <div class="db-box span-2">
-          <p class="db-box-title">Week-over-Week Price Change (%)</p>
+          <p class="db-box-title">Week-over-week price change (%)</p>
           <canvas id="ch-commodity-wow"></canvas>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ── MODAL: Genie AI ──────────────────────────────────────────────────── -->
+  <!-- MODAL: Genie AI -->
   <div class="db-modal" id="modal-ai">
     <div class="db-backdrop" data-close="modal-ai"></div>
     <div class="db-panel">
       <div class="db-header">
         <div>
-          <span class="db-badge">Databricks Genie &middot; NL Business Intelligence</span>
-          <h2 class="db-title">Genie AI — Business Intelligence Demo</h2>
-          <p class="db-sub">Natural language queries on trading data &middot; Trained &amp; configured by Alex</p>
+          <span class="db-badge">Databricks Genie &middot; AI</span>
+          <h2 class="db-title">Genie — AI Analyst for Management</h2>
+          <p class="db-sub">Ask questions about trading data in plain English</p>
+          <p class="db-note">Interactive demo with simulated answers — the real tool ran on confidential eToro data.</p>
         </div>
         <button class="db-close" data-close="modal-ai">&#x2715;</button>
       </div>
-      <div class="db-kpis">
-        <div class="db-kpi"><div class="kpi-num pos">127</div><div class="kpi-lab">Avg Daily Queries</div></div>
-        <div class="db-kpi"><div class="kpi-num">5</div><div class="kpi-lab">Data Domains</div></div>
-        <div class="db-kpi"><div class="kpi-num pos">&lt;2s</div><div class="kpi-lab">Avg Response Time</div></div>
-        <div class="db-kpi"><div class="kpi-num warn">0</div><div class="kpi-lab">Analyst Hours Saved / Day</div></div>
-      </div>
-
       <div class="genie-wrap">
         <div class="genie-chat" id="genie-chat">
           <div class="genie-msg genie-ai">
             <div class="genie-avatar">G</div>
             <div class="genie-bubble">
-              <p>Hi! I'm <strong>Genie</strong>, the AI business analyst trained on eToro's trading data. I know the table structures, fee rules, KPI definitions, and business logic of the dealing room.</p>
-              <p>Click a question below to see how management used me every day.</p>
+              <p>Hi! I'm <strong>Genie</strong>, an AI analyst trained on trading data — table structures, fee rules, KPI definitions, and business logic.</p>
+              <p>Click a question below to see how managers used a tool like me every day.</p>
             </div>
           </div>
         </div>
         <div class="genie-suggestions">
           <p class="genie-sugg-label">Try asking:</p>
           <div class="genie-btns">
-            <button class="genie-btn" data-q="top-stocks">&#128202; Top 10 stocks by volume</button>
-            <button class="genie-btn" data-q="fees">&#128176; Fee earnings by asset</button>
-            <button class="genie-btn" data-q="latency">&#9889; Order execution latency</button>
-            <button class="genie-btn" data-q="risk">&#128680; Client withdrawal risk</button>
-            <button class="genie-btn" data-q="hours">&#127749; Pre-market vs regular fees</button>
+            <button class="genie-btn" data-q="top-stocks">Top 10 stocks by volume</button>
+            <button class="genie-btn" data-q="fees">Fee earnings by asset</button>
+            <button class="genie-btn" data-q="latency">Order execution latency</button>
+            <button class="genie-btn" data-q="risk">Client withdrawal risk</button>
+            <button class="genie-btn" data-q="hours">Pre-market vs regular fees</button>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
+  <script src="assets/js/main.js"></script>
   <script src="assets/js/dashboards.js"></script>
 </body>
 </html>
