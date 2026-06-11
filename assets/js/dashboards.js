@@ -27,7 +27,7 @@ const axes = (yCallback) => ({
   y: { grid: { color: C.grid }, ticks: { color: C.slate, font: { family: C.font, size: 11 }, callback: yCallback || (v => v) } }
 });
 
-// Chart registry — destroy before re-rendering
+// Chart registry - destroy before re-rendering
 const registry = {};
 function mk(id, config) {
   if (registry[id]) { registry[id].destroy(); }
@@ -590,7 +590,7 @@ const genieResponses = {
         <div class="genie-kv-item"><div class="genie-kv-label">ETFs</div><div class="genie-kv-value">$67,410</div></div>
         <div class="genie-kv-item"><div class="genie-kv-label">Commodities</div><div class="genie-kv-value warn">$38,920</div></div>
       </div>
-      <p style="margin-top:.65rem"><strong>Top earner:</strong> BTC/USD spread — $52,140 (28% of crypto fees). Volumes spiked Mon–Tue on ETF news, driving an extra <strong>$31K</strong> vs the prior week.</p>`
+      <p style="margin-top:.65rem"><strong>Top earner:</strong> BTC/USD spread - $52,140 (28% of crypto fees). Volumes spiked Mon–Tue on ETF news, driving an extra <strong>$31K</strong> vs the prior week.</p>`
   },
   'latency': {
     q: 'What was average order execution latency yesterday?',
@@ -601,11 +601,11 @@ const genieResponses = {
         <div class="genie-kv-item"><div class="genie-kv-label">Peak Hour</div><div class="genie-kv-value">9:30am EST</div></div>
         <div class="genie-kv-item"><div class="genie-kv-label">vs Prior Day</div><div class="genie-kv-value pos">−4ms</div></div>
       </div>
-      <p style="margin-top:.65rem">Spike to <strong style="color:#FBBF24">214ms</strong> at 9:31am EST — market open surge (47K concurrent orders). Resolved in 90s. All executions completed within SLA.</p>`
+      <p style="margin-top:.65rem">Spike to <strong style="color:#FBBF24">214ms</strong> at 9:31am EST - market open surge (47K concurrent orders). Resolved in 90s. All executions completed within SLA.</p>`
   },
   'risk': {
     q: 'Show me clients with large withdrawals in the last 5 days',
-    html: `<p>5-day risk scan — clients flagged for large withdrawals after negative P&amp;L:</p>
+    html: `<p>5-day risk scan - clients flagged for large withdrawals after negative P&amp;L:</p>
       <table>
         <thead><tr><th>Client ID</th><th>5d P&amp;L</th><th>Withdrawal</th><th>Signal</th></tr></thead>
         <tbody>
@@ -641,7 +641,7 @@ function renderAI() {
     <div class="genie-msg genie-ai">
       <div class="genie-avatar">G</div>
       <div class="genie-bubble">
-        <p>Hi! I'm <strong>Genie</strong>, an AI analyst trained on trading data — table structures, fee rules, KPI definitions, and business logic.</p>
+        <p>Hi! I'm <strong>Genie</strong>, an AI analyst trained on trading data - table structures, fee rules, KPI definitions, and business logic.</p>
         <p>Click a question below to see how managers used a tool like me every day.</p>
       </div>
     </div>`;
