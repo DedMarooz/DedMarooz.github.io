@@ -1,19 +1,19 @@
 // ── Theme constants ────────────────────────────────────────────────────────────
 const C = {
-  accent:  '#4D8DF7',
-  blue:    '#82AFFF',
+  accent:  '#8B7CF0',
+  blue:    '#4DE3F0',
   green:   '#34D399',
   red:     '#F87171',
   yellow:  '#FBBF24',
-  slate:   '#5E7190',
-  light:   '#C7D3E6',
-  grid:    'rgba(151,170,200,.08)',
+  slate:   '#6E737D',
+  light:   '#D6D9DF',
+  grid:    'rgba(255,255,255,.06)',
   font:    "'Inter', sans-serif",
   mono:    "'Fira Code', monospace"
 };
 
 const tooltip = {
-  backgroundColor: '#0B1322',
+  backgroundColor: '#0A0A0F',
   borderColor: C.accent,
   borderWidth: 1,
   titleColor: C.light,
@@ -89,7 +89,7 @@ function renderSLTP() {
           label: 'Orders scanned',
           data: volume,
           borderColor: C.accent,
-          backgroundColor: 'rgba(77,141,247,.10)',
+          backgroundColor: 'rgba(139,124,240,.10)',
           fill: true, tension: 0.4,
           pointRadius: 3, pointBackgroundColor: C.accent,
           yAxisID: 'y'
@@ -125,7 +125,7 @@ function renderSLTP() {
       datasets: [{
         label: 'Flagged orders',
         data: flags,
-        backgroundColor: 'rgba(77,141,247,.7)',
+        backgroundColor: 'rgba(139,124,240,.7)',
         borderRadius: 5, borderSkipped: false
       }]
     },
@@ -156,7 +156,7 @@ function renderHedge() {
           label: 'Fail ratio %',
           data: ratio,
           borderColor: C.accent,
-          backgroundColor: 'rgba(77,141,247,.08)',
+          backgroundColor: 'rgba(139,124,240,.08)',
           fill: true, tension: 0.35,
           pointRadius: ratio.map(v => v > 1.5 ? 5 : 0),
           pointBackgroundColor: ratio.map(v => v > 1.5 ? C.red : C.accent),
@@ -194,7 +194,7 @@ function renderHedge() {
       datasets: [{
         label: 'Fail ratio %',
         data: gRatio,
-        backgroundColor: gRatio.map(v => v > 1.5 ? 'rgba(248,113,113,.75)' : 'rgba(77,141,247,.7)'),
+        backgroundColor: gRatio.map(v => v > 1.5 ? 'rgba(248,113,113,.75)' : 'rgba(139,124,240,.7)'),
         borderRadius: 5, borderSkipped: false
       }]
     },
@@ -226,7 +226,7 @@ function renderPnl() {
           type: 'bar',
           label: 'Daily revenue ($K)',
           data: daily,
-          backgroundColor: 'rgba(77,141,247,.65)',
+          backgroundColor: 'rgba(139,124,240,.65)',
           borderRadius: 4, borderSkipped: false,
           yAxisID: 'y'
         },
@@ -262,8 +262,8 @@ function renderPnl() {
       labels: ['Stocks', 'Crypto', 'Indices', 'Commodities', 'FX'],
       datasets: [{
         data: [38, 27, 16, 11, 8],
-        backgroundColor: ['#4D8DF7', '#A78BFA', '#34D399', '#FBBF24', '#5E7190'],
-        borderColor: '#0B1322',
+        backgroundColor: ['#8B7CF0', '#4DE3F0', '#34D399', '#FBBF24', '#6E737D'],
+        borderColor: '#0A0A0F',
         borderWidth: 3
       }]
     },
@@ -367,7 +367,7 @@ function renderTrader() {
         {
           label: 'Finance Fees',
           data: finFees,
-          backgroundColor: finFees.map((_, i) => i === nvdaIdx ? 'rgba(248,113,113,.75)' : '#2B6CB0'),
+          backgroundColor: finFees.map((_, i) => i === nvdaIdx ? 'rgba(248,113,113,.75)' : '#8B7CF0'),
           borderRadius: 4, borderSkipped: false
         },
         {
@@ -415,7 +415,7 @@ function renderMarket() {
           label: 'S&P 500 Futures',
           data: futures,
           borderColor: C.accent,
-          backgroundColor: 'rgba(77,141,247,.10)',
+          backgroundColor: 'rgba(139,124,240,.10)',
           fill: true, tension: 0.4,
           pointRadius: 3, pointBackgroundColor: C.accent
         },
@@ -507,7 +507,7 @@ function renderCommodity() {
         label,
         data: color === C.blue ? natGas : wti,
         borderColor: color,
-        backgroundColor: color === C.blue ? 'rgba(130,175,255,.08)' : 'rgba(251,191,36,.08)',
+        backgroundColor: color === C.blue ? 'rgba(77,227,240,.08)' : 'rgba(251,191,36,.08)',
         fill: true, tension: 0.4,
         pointRadius: 0, pointHoverRadius: 4
       }]
@@ -537,7 +537,7 @@ function renderCommodity() {
         {
           label: 'Natural Gas',
           data: gasWow,
-          backgroundColor: gasWow.map(v => v >= 0 ? 'rgba(130,175,255,.8)' : 'rgba(130,175,255,.3)'),
+          backgroundColor: gasWow.map(v => v >= 0 ? 'rgba(77,227,240,.8)' : 'rgba(77,227,240,.3)'),
           borderRadius: 4, borderSkipped: false
         },
         {
