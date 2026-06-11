@@ -13,7 +13,7 @@ const C = {
 };
 
 const tooltip = {
-  backgroundColor: '#0A0A0F',
+  backgroundColor: '#18181E',
   borderColor: C.accent,
   borderWidth: 1,
   titleColor: C.light,
@@ -263,7 +263,7 @@ function renderPnl() {
       datasets: [{
         data: [38, 27, 16, 11, 8],
         backgroundColor: ['#8B7CF0', '#4DE3F0', '#34D399', '#FBBF24', '#6E737D'],
-        borderColor: '#0A0A0F',
+        borderColor: '#18181E',
         borderWidth: 3
       }]
     },

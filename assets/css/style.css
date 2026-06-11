@@ -5,10 +5,10 @@
    ════════════════════════════════════════════════════════════════════════════ */
 
 :root {
-  --bg:        #060608;
-  --bg-alt:    #09090C;
-  --surface:   #0E0E13;
-  --surface-2: #13131A;
+  --bg:        #141419;
+  --bg-alt:    #18181E;
+  --surface:   #1D1D24;
+  --surface-2: #22222B;
   --accent:    #6B5CD6;
   --accent-2:  #9D8FF2;
   --accent-dk: #5A4BC4;
@@ -22,7 +22,7 @@
   --faint:     #6E737D;
   --border:    rgba(255,255,255,.08);
   --border-2:  rgba(255,255,255,.16);
-  --grid-line: rgba(255,255,255,.035);
+  --grid-line: rgba(255,255,255,.045);
   --nav-h:     64px;
   --tr:        .18s ease;
   --font-sans: 'Inter', system-ui, sans-serif;
@@ -50,7 +50,7 @@ a:focus-visible, button:focus-visible {
 }
 ::-webkit-scrollbar { width: 11px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: #1E1E28; border: 3px solid var(--bg); }
+::-webkit-scrollbar-thumb { background: #2E2E3A; border: 3px solid var(--bg); }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent-dk); }
 
 .scroll-progress {
@@ -68,13 +68,13 @@ a:focus-visible, button:focus-visible {
   top: 0; left: 0; right: 0;
   height: var(--nav-h);
   z-index: 100;
-  background: rgba(6,6,8,.85);
+  background: rgba(20,20,25,.85);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid transparent;
   transition: border-color var(--tr), background var(--tr);
 }
-.nav.scrolled { border-bottom-color: var(--border); background: rgba(6,6,8,.94); }
+.nav.scrolled { border-bottom-color: var(--border); background: rgba(20,20,25,.94); }
 .nav-inner {
   max-width: 1160px;
   margin: 0 auto;
@@ -566,7 +566,7 @@ a:focus-visible, button:focus-visible {
 .db-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.88); backdrop-filter: blur(8px); cursor: pointer; }
 .db-panel {
   position: relative; z-index: 1;
-  background: #0A0A0F;
+  background: #18181E;
   border: 1px solid rgba(255,255,255,.14);
   border-radius: 0;
   width: 100%; max-width: 1020px; max-height: 90vh;
@@ -779,7 +779,7 @@ a:focus-visible, button:focus-visible {
     flex-direction: column;
     position: absolute;
     top: var(--nav-h); left: 0; right: 0;
-    background: rgba(6,6,8,.98);
+    background: rgba(20,20,25,.98);
     padding: 1.5rem 2rem;
     gap: 1.2rem;
     border-bottom: 1px solid var(--border);
