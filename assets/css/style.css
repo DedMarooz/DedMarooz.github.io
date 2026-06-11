@@ -400,13 +400,13 @@ a:focus-visible, button:focus-visible {
 .timeline::before {
   content: '';
   position: absolute;
-  left: 204px; top: 8px; bottom: 40px;
+  left: 248px; top: 8px; bottom: 40px;
   width: 1px;
   background: linear-gradient(to bottom, rgba(107,92,214,.55), transparent);
 }
 .timeline-item {
   display: grid;
-  grid-template-columns: 204px 1fr;
+  grid-template-columns: 248px 1fr;
   gap: 2.5rem;
   padding-bottom: 3rem;
   position: relative;
@@ -415,7 +415,7 @@ a:focus-visible, button:focus-visible {
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: 199px; top: 8px;
+  left: 243px; top: 8px;
   width: 11px; height: 11px;
   background: var(--bg-alt);
   border: 2px solid var(--accent-2);
@@ -426,7 +426,7 @@ a:focus-visible, button:focus-visible {
   font-size: .74rem;
   color: var(--faint);
   padding-top: 4px;
-  padding-right: 30px;
+  padding-right: 74px;
   text-align: right;
   line-height: 1.5;
 }
