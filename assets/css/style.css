@@ -162,13 +162,12 @@ ul { list-style: none; }
   0%, 100% { box-shadow: 0 0 0 0 rgba(52,211,153,.5); }
   50% { box-shadow: 0 0 0 5px rgba(52,211,153,0); }
 }
-.hero-script {
-  font-family: 'Dancing Script', cursive;
-  font-size: clamp(3.4rem, 8vw, 6rem);
-  font-weight: 600;
-  color: var(--text);
-  line-height: 1.05;
-  margin-bottom: .6rem;
+.hero-sig {
+  display: block;
+  height: clamp(72px, 11vw, 124px);
+  width: auto;
+  max-width: 100%;
+  margin-bottom: 1.1rem;
 }
 .hero-eyebrow {
   font-family: var(--font-mono);
@@ -193,44 +192,20 @@ ul { list-style: none; }
   line-height: 1.85;
   margin-bottom: 2.8rem;
 }
-.hero-btns { display: flex; gap: .9rem; flex-wrap: wrap; margin-bottom: 4.5rem; }
+.hero-btns { display: flex; gap: .9rem; flex-wrap: wrap; margin-bottom: 1.9rem; }
 
 .hero-tools {
-  border-top: 1px solid var(--border);
-  padding-top: 1.6rem;
-  max-width: 880px;
-}
-.hero-tools-label {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: .7rem;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--faint);
-  margin-bottom: 1.3rem;
-}
-.hero-tools-row {
   display: flex;
-  gap: 2.6rem;
-  flex-wrap: wrap;
-  align-items: flex-start;
-}
-.tool {
-  display: flex;
-  flex-direction: column;
+  gap: 1.15rem;
   align-items: center;
-  gap: .55rem;
-  opacity: .72;
+}
+.hero-tools img {
+  width: 18px;
+  height: 18px;
+  opacity: .8;
   transition: opacity .25s ease, transform .25s ease;
 }
-.tool:hover { opacity: 1; transform: translateY(-3px); }
-.tool img { width: 30px; height: 30px; }
-.tool span {
-  font-family: var(--font-mono);
-  font-size: .68rem;
-  color: var(--faint);
-  letter-spacing: .04em;
-}
+.hero-tools img:hover { opacity: 1; transform: translateY(-2px); }
 
 /* ── Buttons ────────────────────────────────────────────────────────────────── */
 .btn {
@@ -769,14 +744,14 @@ ul { list-style: none; }
   }
   .nav-links.open { display: flex; }
   .nav-burger { display: block; }
-  .hero-tools-row { gap: 1.8rem; }
+  .hero-tools { gap: 1rem; }
   .db-case { grid-template-columns: 1fr; gap: 1.1rem; }
 }
 @media (max-width: 640px) {
   .section { padding: 4.5rem 1.4rem; }
   .hero { padding-left: 1.4rem; padding-right: 1.4rem; }
-  .hero-tools-row { gap: 1.4rem; }
-  .tool img { width: 26px; height: 26px; }
+  .hero-tools { gap: .85rem; }
+  .hero-tools img { width: 16px; height: 16px; }
   .db-modal { padding: 0; align-items: flex-end; }
   .db-panel { max-height: 93vh; padding: 1.25rem; }
   .db-kpis, .db-kpis-5 { grid-template-columns: 1fr 1fr !important; }
