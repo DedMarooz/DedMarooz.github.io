@@ -1,7 +1,10 @@
-// Nav scroll shadow
+// Nav scroll shadow + scroll progress bar
 const nav = document.getElementById('nav');
+const progress = document.getElementById('progress');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 20);
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
 });
 
 // Mobile burger menu

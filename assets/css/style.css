@@ -43,6 +43,24 @@ body {
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 ::selection { background: rgba(107,92,214,.45); }
+section[id], header[id] { scroll-margin-top: 72px; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 3px;
+}
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #1E1E28; border: 3px solid var(--bg); }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-dk); }
+
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent), var(--cyan));
+  z-index: 200;
+}
 
 /* ── Nav ────────────────────────────────────────────────────────────────────── */
 .nav {
@@ -208,7 +226,7 @@ ul { list-style: none; }
   transition: opacity .25s ease, transform .25s ease;
 }
 .tool:hover { opacity: 1; transform: translateY(-2px); }
-.tool img { width: 19px; height: 19px; }
+.tool img { width: 24px; height: 24px; }
 .tool span {
   font-size: .6rem;
   font-weight: 500;
@@ -734,8 +752,23 @@ ul { list-style: none; }
 /* ── Animations ─────────────────────────────────────────────────────────────── */
 .fade-up { opacity: 0; transform: translateY(18px); transition: opacity .5s ease, transform .5s ease; }
 .fade-up.visible { opacity: 1; transform: none; }
+
+.hero-inner > * { animation: heroIn .65s cubic-bezier(.2,.7,.3,1) both; }
+.hero-inner > *:nth-child(1) { animation-delay: .05s; }
+.hero-inner > *:nth-child(2) { animation-delay: .13s; }
+.hero-inner > *:nth-child(3) { animation-delay: .21s; }
+.hero-inner > *:nth-child(4) { animation-delay: .29s; }
+.hero-inner > *:nth-child(5) { animation-delay: .37s; }
+.hero-inner > *:nth-child(6) { animation-delay: .45s; }
+.hero-inner > *:nth-child(7) { animation-delay: .53s; }
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .fade-up { opacity: 1; transform: none; transition: none; }
+  .hero-inner > * { animation: none; }
   html { scroll-behavior: auto; }
 }
 
@@ -760,7 +793,7 @@ ul { list-style: none; }
   .section { padding: 4.5rem 1.4rem; }
   .hero { padding-left: 1.4rem; padding-right: 1.4rem; }
   .hero-tools { gap: 1rem; }
-  .tool img { width: 17px; height: 17px; }
+  .tool img { width: 20px; height: 20px; }
   .db-modal { padding: 0; align-items: flex-end; }
   .db-panel { max-height: 93vh; padding: 1.25rem; }
   .db-kpis, .db-kpis-5 { grid-template-columns: 1fr 1fr !important; }
