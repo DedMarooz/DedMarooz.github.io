@@ -43,17 +43,16 @@
       <p class="hero-available"><span class="pulse"></span>Open to new opportunities</p>
       <img class="hero-sig" src="assets/img/signature.svg" alt="Alexander Zaretski" />
       <p class="hero-eyebrow">Data Analyst &middot; Fintech &middot; AI</p>
-      <h1 class="hero-name">I turn data into<br />clear decisions.</h1>
+      <h1 class="hero-name">I build data systems and AI tools that help teams make faster, better decisions.</h1>
       <p class="hero-desc">
-        Four years at eToro working with live trading data - building the dashboards,
-        monitoring systems, and automations that operations, finance, and risk teams
-        used every day. Experienced in SQL and Python, with a growing focus on
-        AI-driven solutions, including agentic workflows and automations built with
-        Claude Code, Claude API, and ChatGPT.
+        Data Analyst with four years at eToro - live trading systems, dashboards,
+        and automation tools used daily by operations, finance, and risk teams.
+        Now focused on building AI-powered workflows and internal tools using
+        Python, SQL, and LLM APIs.
       </p>
       <div class="hero-btns">
-        <a href="#projects" class="btn btn-accent">View projects</a>
-        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        <a href="#projects" class="btn btn-accent">View Projects</a>
+        <a href="#contact" class="btn btn-ghost">Contact</a>
       </div>
       <div class="hero-tools" aria-label="Tools I work with">
         <div class="tool"><img src="assets/icons/python.svg" alt="" /><span>Python</span></div>
@@ -74,10 +73,23 @@
 
   <main>
 
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <p class="section-eyebrow">01 - About</p>
+      <h2 class="section-title">About</h2>
+      <div class="about-body">
+        <p class="about-lead">I'm a data and automation specialist focused on turning complex systems into clear, actionable insights.</p>
+        <p>At eToro, I worked directly with live trading data - building dashboards, monitoring systems, and automated workflows used daily by multiple business teams.</p>
+        <p>My work sits at the intersection of data engineering, analytics, and AI automation. Recently, I've been building agentic workflows and AI tools using Python, SQL, and LLM APIs (Claude, ChatGPT) to reduce manual analysis and speed up decision-making.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- PROJECTS -->
   <section class="section" id="projects">
     <div class="container">
-      <p class="section-eyebrow">01 - Work</p>
+      <p class="section-eyebrow">02 - Work</p>
       <h2 class="section-title">Projects</h2>
       <p class="section-sub">
         Three projects from my work at eToro, and four demos built on public data.
@@ -95,18 +107,18 @@
             <span class="card-flag">eToro</span>
           </div>
           <h3 class="card-title">Pre-Market Order Monitoring</h3>
-          <p class="card-summary">A system that checks stop-loss and take-profit orders before the US market opens, and alerts the operations team about unusual ones.</p>
+          <p class="card-summary">Real-time system that detects risky trading orders before market open.</p>
           <dl class="case-rows">
             <div class="case-row">
               <dt>Problem</dt>
-              <dd>Unusual orders placed overnight could create losses at market open. Nobody could see them in time.</dd>
+              <dd>Overnight stop-loss and take-profit orders could create unexpected exposure at market open - and nobody could see them in time.</dd>
             </div>
             <div class="case-row">
               <dt>What I built</dt>
-              <dd>SQL detection logic in Databricks that scans pre-market orders, flags abnormal patterns, and alerts the team before the open.</dd>
+              <dd>SQL anomaly detection in Databricks that compares pre-market orders against a 30-day baseline, with automated alerts to the operations team.</dd>
             </div>
           </dl>
-          <p class="case-result"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>The team saw problems before the market opened - not after.</p>
+          <p class="case-result"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Teams could act before market open instead of reacting after losses occurred.</p>
           <p class="card-stack">SQL &middot; Databricks &middot; Python &middot; Tableau</p>
           <button class="btn-demo" data-modal="modal-sltp">Open interactive demo<span class="arr">&#x2192;</span></button>
         </article>
@@ -120,11 +132,11 @@
             <span class="card-flag">eToro</span>
           </div>
           <h3 class="card-title">Hedge Execution Fail Monitor</h3>
-          <p class="card-summary">A metric and dashboard that tracks failed hedge executions and shows exactly where the failures come from.</p>
+          <p class="card-summary">Monitoring system that turns failed hedge executions into a measurable, trackable risk metric.</p>
           <dl class="case-rows">
             <div class="case-row">
               <dt>Problem</dt>
-              <dd>Hedge orders sometimes failed, leaving the company exposed to market risk. There was no way to measure how often, or why.</dd>
+              <dd>Failed hedge orders left the company exposed to market risk - with no way to measure how often it happened, or why.</dd>
             </div>
             <div class="case-row">
               <dt>What I built</dt>
@@ -145,7 +157,7 @@
             <span class="card-flag">eToro</span>
           </div>
           <h3 class="card-title">Trading Revenue &amp; PnL Analytics</h3>
-          <p class="card-summary">Revenue and PnL reporting used by business and executive teams to track how the trading business performs.</p>
+          <p class="card-summary">One trusted source of revenue and PnL data for business and executive teams.</p>
           <dl class="case-rows">
             <div class="case-row">
               <dt>Problem</dt>
@@ -170,7 +182,7 @@
             <span class="card-flag card-flag-alt">eToro &middot; AI</span>
           </div>
           <h3 class="card-title">Genie - AI Analyst for Management</h3>
-          <p class="card-summary">An AI assistant that lets managers ask questions about trading data in plain English and get instant answers.</p>
+          <p class="card-summary">Natural-language AI interface that lets managers query trading data without waiting for an analyst.</p>
           <dl class="case-rows">
             <div class="case-row">
               <dt>Problem</dt>
@@ -195,7 +207,7 @@
             <span class="card-flag card-flag-alt">Public data</span>
           </div>
           <h3 class="card-title">Market Open Briefing</h3>
-          <p class="card-summary">A morning dashboard that shows what is about to happen when the US market opens - futures, movers, and sector rotation.</p>
+          <p class="card-summary">Pre-open dashboard covering futures, movers, and sector rotation in one screen.</p>
           <dl class="case-rows">
             <div class="case-row">
               <dt>Problem</dt>
@@ -220,7 +232,7 @@
             <span class="card-flag card-flag-alt">Demo</span>
           </div>
           <h3 class="card-title">Finance vs Trading - Data Reconciliation</h3>
-          <p class="card-summary">A consistency check that finds why two departments report different numbers for the same thing.</p>
+          <p class="card-summary">Reconciliation pipeline that finds why two departments report different numbers for the same thing.</p>
           <dl class="case-rows">
             <div class="case-row">
               <dt>Problem</dt>
@@ -245,7 +257,7 @@
             <span class="card-flag card-flag-alt">Public data</span>
           </div>
           <h3 class="card-title">Commodity Tracker &amp; Report Bot</h3>
-          <p class="card-summary">A scheduled Python pipeline that tracks Natural Gas and Oil prices and writes its own report - no human needed.</p>
+          <p class="card-summary">Scheduled data pipeline that tracks energy prices and generates its own daily report.</p>
           <dl class="case-rows">
             <div class="case-row">
               <dt>Problem</dt>
@@ -268,7 +280,7 @@
   <!-- EXPERIENCE -->
   <section class="section section-alt" id="experience">
     <div class="container">
-      <p class="section-eyebrow">02 - Background</p>
+      <p class="section-eyebrow">03 - Background</p>
       <h2 class="section-title">Experience</h2>
 
       <div class="timeline">
@@ -281,11 +293,11 @@
               <span class="timeline-company">eToro</span>
             </div>
             <ul class="timeline-list">
-              <li>Built Tableau dashboards on Databricks, used daily for KPI tracking and operational decisions</li>
-              <li>Developed an AI Q&amp;A tool on Databricks Genie so managers could query trading data in plain English</li>
-              <li>Created real-time anomaly alerts with Python and the Google Chat API</li>
-              <li>Automated reporting workflows, saving hours of manual work every day</li>
-              <li>Worked across four departments - trading, operations, finance, and risk</li>
+              <li>Built production Tableau dashboards on Databricks, used daily by operations, finance, and risk teams for KPI tracking and decision-making</li>
+              <li>Developed AI-powered Q&amp;A tools (Databricks Genie) enabling managers to query trading data in natural language</li>
+              <li>Built Python-based monitoring and anomaly detection systems for live trading environments</li>
+              <li>Automated reporting pipelines that reduced manual analytical workload and improved reporting speed</li>
+              <li>Worked with real-time trading data across multiple departments including risk, finance, and operations</li>
             </ul>
           </div>
         </div>
@@ -298,10 +310,10 @@
               <span class="timeline-company">eToro</span>
             </div>
             <ul class="timeline-list">
-              <li>Monitored live trading systems and kept operations running through fast markets</li>
-              <li>Built Python alerting and reporting automations for the trading floor</li>
-              <li>Analyzed market and operational data to support risk decisions</li>
-              <li>Grew from this role into the data analyst position</li>
+              <li>Monitored live trading systems in high-frequency market conditions</li>
+              <li>Built Python-based alerting and reporting tools for trading operations</li>
+              <li>Supported risk and execution teams with real-time data analysis</li>
+              <li>Promoted into the Data Analyst role based on performance and technical contribution</li>
             </ul>
           </div>
         </div>
@@ -339,7 +351,7 @@
   <!-- EDUCATION -->
   <section class="section" id="education">
     <div class="container">
-      <p class="section-eyebrow">03 - Education</p>
+      <p class="section-eyebrow">04 - Education</p>
       <h2 class="section-title">Education</h2>
 
       <div class="edu-card">
@@ -359,38 +371,38 @@
   <!-- SKILLS -->
   <section class="section" id="skills">
     <div class="container">
-      <p class="section-eyebrow">04 - Toolbox</p>
+      <p class="section-eyebrow">05 - Toolbox</p>
       <h2 class="section-title">Skills &amp; Tools</h2>
 
       <div class="skills-grid">
         <div class="skill-group">
-          <h3 class="skill-group-title">Core</h3>
+          <h3 class="skill-group-title">Data &amp; Analytics</h3>
           <div class="skill-pills">
-            <span>SQL</span><span>Python</span><span>PySpark</span><span>Pandas</span>
+            <span>SQL</span><span>Python</span><span>PySpark</span><span>Pandas</span><span>Databricks</span>
           </div>
         </div>
         <div class="skill-group">
-          <h3 class="skill-group-title">BI &amp; Visualization</h3>
+          <h3 class="skill-group-title">Visualization &amp; BI</h3>
           <div class="skill-pills">
             <span>Tableau</span><span>Plotly</span><span>Streamlit</span>
           </div>
         </div>
         <div class="skill-group">
-          <h3 class="skill-group-title">Data Platforms</h3>
+          <h3 class="skill-group-title">Data Engineering &amp; Systems</h3>
           <div class="skill-pills">
-            <span>Databricks</span><span>Apache Spark</span><span>Azure</span>
+            <span>Spark</span><span>Azure</span><span>ETL pipelines</span><span>APIs</span>
           </div>
         </div>
         <div class="skill-group">
-          <h3 class="skill-group-title">AI Tools</h3>
+          <h3 class="skill-group-title">AI &amp; Automation</h3>
           <div class="skill-pills">
-            <span>Databricks Genie</span><span>Claude API</span><span>LLM Prompting</span>
+            <span>Claude API</span><span>OpenAI API</span><span>LLM workflows</span><span>Databricks Genie</span>
           </div>
         </div>
         <div class="skill-group">
-          <h3 class="skill-group-title">Market Knowledge</h3>
+          <h3 class="skill-group-title">Domain Knowledge</h3>
           <div class="skill-pills">
-            <span>Stocks</span><span>ETFs</span><span>Crypto</span><span>Commodities</span><span>Risk &amp; Hedging</span>
+            <span>Trading systems</span><span>Risk</span><span>Execution</span><span>PnL</span><span>Fintech analytics</span>
           </div>
         </div>
         <div class="skill-group">
@@ -400,58 +412,58 @@
           </div>
         </div>
       </div>
-      <p class="skills-note">Also: Git, data pipelines, web scraping, workflow automation.</p>
+      <p class="skills-note">Also: Git, web scraping, workflow automation.</p>
     </div>
   </section>
 
   <!-- HOW I WORK -->
   <section class="section section-alt" id="thinking">
     <div class="container">
-      <p class="section-eyebrow">05 - Method</p>
+      <p class="section-eyebrow">06 - Method</p>
       <h2 class="section-title">How I Work With Data</h2>
-      <p class="section-sub">A dashboard is never the goal. A decision is.</p>
+      <p class="section-sub">I build systems that help people make decisions - not just dashboards.</p>
 
       <div class="thinking-steps">
         <div class="thinking-step">
           <span class="step-num">01</span>
           <div class="step-body">
-            <h3 class="step-title">Start with the business question</h3>
-            <p class="step-desc">What decision does this data need to support? I ask before I write a single query.</p>
+            <h3 class="step-title">Understand the decision being made</h3>
+            <p class="step-desc">Every project starts with the decision it needs to support - not with the data that happens to exist.</p>
           </div>
         </div>
         <div class="thinking-step">
           <span class="step-num">02</span>
           <div class="step-body">
-            <h3 class="step-title">Define the metric clearly</h3>
-            <p class="step-desc">A vague KPI gives a misleading answer. I make sure everyone agrees on what we are measuring.</p>
+            <h3 class="step-title">Define the metric with stakeholders</h3>
+            <p class="step-desc">A vague KPI gives a misleading answer. The definition is agreed with stakeholders before anything gets built.</p>
           </div>
         </div>
         <div class="thinking-step">
           <span class="step-num">03</span>
           <div class="step-body">
-            <h3 class="step-title">Check the data first</h3>
-            <p class="step-desc">I validate the source, the logic, and the edge cases before building anything on top of it.</p>
+            <h3 class="step-title">Validate data quality and edge cases</h3>
+            <p class="step-desc">Source, logic, and edge cases are checked first - a system built on bad data fails quietly.</p>
           </div>
         </div>
         <div class="thinking-step">
           <span class="step-num">04</span>
           <div class="step-body">
-            <h3 class="step-title">Build it clean</h3>
-            <p class="step-desc">Readable SQL and Python, and outputs that both engineers and managers understand.</p>
+            <h3 class="step-title">Build clean, reusable pipelines</h3>
+            <p class="step-desc">Readable SQL and Python that the next person can maintain and other teams can build on.</p>
           </div>
         </div>
         <div class="thinking-step">
           <span class="step-num">05</span>
           <div class="step-body">
-            <h3 class="step-title">End with a recommendation</h3>
-            <p class="step-desc">I always say what I think the data means and what I would do next - not just show a chart.</p>
+            <h3 class="step-title">Deliver insights, not just charts</h3>
+            <p class="step-desc">Every output ends with what the data means and what to do next.</p>
           </div>
         </div>
         <div class="thinking-step">
           <span class="step-num">06</span>
           <div class="step-body">
-            <h3 class="step-title">Automate what repeats</h3>
-            <p class="step-desc">If a question comes back every week, I turn it into a dashboard, a report, or an alert.</p>
+            <h3 class="step-title">Automate anything that repeats</h3>
+            <p class="step-desc">Recurring questions become dashboards, scheduled reports, or alerts - and stop costing analyst time.</p>
           </div>
         </div>
       </div>
@@ -461,7 +473,7 @@
   <!-- CONTACT -->
   <section class="section contact" id="contact">
     <div class="container contact-inner">
-      <p class="section-eyebrow center">06 - Contact</p>
+      <p class="section-eyebrow center">07 - Contact</p>
       <h2 class="contact-title">Let's talk.</h2>
       <p class="contact-desc">
         I'm looking for my next data role - analytics, BI, or AI-focused.

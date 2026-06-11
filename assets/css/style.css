@@ -196,11 +196,12 @@ a:focus-visible, button:focus-visible {
   margin-bottom: 1.5rem;
 }
 .hero-name {
-  font-size: clamp(2.3rem, 5.5vw, 4.2rem);
+  font-size: clamp(2rem, 4.4vw, 3.4rem);
   font-weight: 500;
-  letter-spacing: -.045em;
-  line-height: 1.05;
+  letter-spacing: -.04em;
+  line-height: 1.12;
   color: var(--text);
+  max-width: 900px;
   margin-bottom: 1.6rem;
 }
 .hero-desc {
@@ -259,7 +260,7 @@ a:focus-visible, button:focus-visible {
 .btn-lg { padding: 1.05rem 2.4rem; font-size: 1rem; font-family: var(--font-mono); }
 
 /* ── Sections ───────────────────────────────────────────────────────────────── */
-.section { padding: 6.5rem 2rem; }
+.section { padding: 7.5rem 2rem; }
 .section-alt { background: var(--bg-alt); }
 .container { max-width: 1160px; margin: 0 auto; }
 .section-eyebrow {
@@ -272,11 +273,11 @@ a:focus-visible, button:focus-visible {
 }
 .section-eyebrow.center { text-align: center; }
 .section-title {
-  font-size: clamp(1.8rem, 3.6vw, 2.5rem);
-  font-weight: 500;
+  font-size: clamp(1.9rem, 3.8vw, 2.7rem);
+  font-weight: 600;
   letter-spacing: -.035em;
   color: var(--text);
-  margin-bottom: .9rem;
+  margin-bottom: 1rem;
 }
 .section-sub { color: var(--muted); margin-bottom: 3rem; font-size: 1.02rem; max-width: 640px; }
 
@@ -436,6 +437,22 @@ a:focus-visible, button:focus-visible {
 .timeline-list { display: flex; flex-direction: column; gap: .45rem; }
 .timeline-list li { font-size: .92rem; color: var(--muted); padding-left: 1.2rem; position: relative; line-height: 1.7; }
 .timeline-list li::before { content: ''; position: absolute; left: 0; top: .72em; width: 6px; height: 1.5px; background: var(--accent-2); }
+/* ── About ──────────────────────────────────────────────────────────────────── */
+.about-body { max-width: 780px; }
+.about-lead {
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-weight: 500;
+  letter-spacing: -.02em;
+  line-height: 1.55;
+  color: var(--text);
+  margin: 1.6rem 0 1.4rem;
+}
+.about-body p:not(.about-lead) {
+  color: var(--muted);
+  line-height: 1.9;
+  margin-bottom: 1.2rem;
+}
+
 /* ── Education ──────────────────────────────────────────────────────────────── */
 .edu-card {
   margin-top: 2.5rem;
